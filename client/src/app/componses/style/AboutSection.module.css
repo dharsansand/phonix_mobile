@@ -1,0 +1,487 @@
+/* ============================================================ */
+/* PHONIX MOBILE ABOUT SECTION (DARK NEON HIGH-TECH)            */
+/* ============================================================ */
+
+.aboutWrapper {
+  width: 100%;
+  padding: 4.5rem 1.5rem;
+  background-color: #090d16;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1380px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* ==================== LEFT: INTERACTIVE STAGE CARD ==================== */
+.visualCol {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+/* Ambient Radial Cyan/Orange Glow */
+.ambientBeam {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(
+    circle,
+    rgba(0, 210, 255, 0.16) 0%,
+    rgba(255, 159, 28, 0.08) 50%,
+    transparent 70%
+  );
+  filter: blur(50px);
+  pointer-events: none;
+}
+
+/* 3D Spotlight Card */
+.spotlightCard {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  background: rgba(18, 24, 38, 0.88);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border-radius: 32px;
+  border: 1px solid rgba(0, 210, 255, 0.25);
+  padding: 2.2rem 2rem 2.8rem 2rem;
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.85),
+    0 0 30px rgba(0, 210, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  transition:
+    transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.3s ease;
+}
+
+.spotlightCard:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 35px 70px rgba(0, 0, 0, 0.95),
+    0 0 40px rgba(0, 210, 255, 0.2);
+  border-color: rgba(0, 210, 255, 0.45);
+}
+
+/* React Bits Cursor Glow */
+.spotlightEffect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    320px circle at var(--mouse-x, -200px) var(--mouse-y, -200px),
+    rgba(0, 210, 255, 0.2),
+    transparent 80%
+  );
+  z-index: 1;
+}
+
+.cardHeader {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  margin-bottom: 1.5rem;
+}
+
+.stamp {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: #00d2ff;
+  text-transform: uppercase;
+}
+
+.pulseDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 8px #22c55e;
+  animation: pulse 1.8s infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.3);
+  }
+}
+
+.serialPill {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  background: rgba(255, 159, 28, 0.12);
+  color: #ff9f1c;
+  border: 1px solid rgba(255, 159, 28, 0.35);
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+/* Central Stage Frame */
+.stageFrame {
+  position: relative;
+  z-index: 2;
+  width: 300px;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.75rem;
+}
+
+.haloRing {
+  position: absolute;
+  inset: 5px;
+  border-radius: 50%;
+  border: 1.5px dashed rgba(0, 210, 255, 0.45);
+  animation: slowSpin 25s linear infinite;
+}
+
+@keyframes slowSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.stageImage {
+  position: relative;
+  z-index: 3;
+  width: 240px;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+  border: 3px solid rgba(0, 210, 255, 0.4);
+  transition: transform 0.4s ease;
+}
+
+.spotlightCard:hover .stageImage {
+  transform: scale(1.05);
+}
+
+.imageOverlayBadge {
+  position: absolute;
+  bottom: 10px;
+  z-index: 4;
+  background: rgba(9, 13, 22, 0.95);
+  border: 1px solid #ff9f1c;
+  color: #ff9f1c;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* Lab Selector Tabs */
+.tabSelector {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  background: rgba(9, 13, 22, 0.85);
+  padding: 5px;
+  border-radius: 30px;
+  border: 1px solid rgba(0, 210, 255, 0.25);
+  gap: 4px;
+}
+
+.tabBtn {
+  background: transparent;
+  border: none;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #94a3b8;
+  padding: 8px 18px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.tabBtn:hover {
+  color: #ffffff;
+}
+
+.tabActive {
+  background: #00d2ff;
+  color: #090d16 !important;
+  font-weight: 800;
+  box-shadow: 0 2px 14px rgba(0, 210, 255, 0.45);
+}
+
+.floatingTag {
+  position: absolute;
+  bottom: 10px;
+  right: -5px;
+  background: #121826;
+  border: 1px solid rgba(0, 210, 255, 0.3);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  color: #cbd5e1;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+  z-index: 5;
+}
+
+.floatingTag strong {
+  color: #00d2ff;
+}
+
+/* ==================== RIGHT: STORY & PILLARS ==================== */
+.contentCol {
+  flex: 1.2;
+  max-width: 650px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #00d2ff;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-bottom: 0.8rem;
+  text-transform: uppercase;
+}
+
+.gem {
+  color: #ff9f1c;
+  font-size: 0.95rem;
+}
+
+.mainTitle {
+  font-size: 3rem;
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 0 0 1.25rem 0;
+}
+
+.leadText {
+  font-size: 1.05rem;
+  color: #94a3b8;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+/* 3 Pillars Grid */
+.pillarsGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.pillarCard {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.15rem;
+  background: rgba(18, 24, 38, 0.75);
+  border: 1px solid rgba(0, 210, 255, 0.15);
+  border-radius: 18px;
+  padding: 1.1rem 1.35rem;
+  transition: all 0.25s ease;
+}
+
+.pillarCard:hover {
+  border-color: #00d2ff;
+  background: rgba(18, 24, 38, 0.95);
+  transform: translateX(6px);
+  box-shadow: 0 8px 24px rgba(0, 210, 255, 0.12);
+}
+
+.pillarIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: rgba(0, 210, 255, 0.1);
+  color: #00d2ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  border: 1px solid rgba(0, 210, 255, 0.25);
+}
+
+.pillarTitle {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 0.3rem 0;
+}
+
+.pillarDesc {
+  font-size: 0.88rem;
+  color: #94a3b8;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Bottom Footer Row */
+.footerRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.primaryButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: linear-gradient(135deg, #ff9f1c 0%, #f58300 100%);
+  color: #090d16;
+  padding: 1rem 2.25rem;
+  border-radius: 9999px;
+  font-size: 0.92rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(255, 159, 28, 0.35);
+  transition: all 0.25s ease;
+}
+
+.primaryButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(255, 159, 28, 0.55);
+  filter: brightness(1.05);
+}
+
+.btnArrow {
+  font-size: 1.2rem;
+  transition: transform 0.2s ease;
+}
+
+.primaryButton:hover .btnArrow {
+  transform: translateX(4px);
+}
+
+/* Stats */
+.statsSummary {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.statNum {
+  font-size: 1.65rem;
+  font-weight: 900;
+  color: #00d2ff;
+  line-height: 1;
+}
+
+.statLabel {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #94a3b8;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+.statDivider {
+  width: 1px;
+  height: 32px;
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* ==================== 📱 RESPONSIVENESS ==================== */
+@media (max-width: 1024px) {
+  .container {
+    flex-direction: column;
+    text-align: center;
+    gap: 3.5rem;
+  }
+  .contentCol {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .pillarCard {
+    text-align: left;
+  }
+  .footerRow {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .aboutWrapper {
+    padding: 3.5rem 1rem;
+  }
+  .mainTitle {
+    font-size: 2.1rem;
+  }
+  .spotlightCard {
+    padding: 1.5rem 1rem 2rem 1rem;
+  }
+  .stageFrame {
+    width: 240px;
+    height: 240px;
+  }
+  .stageImage {
+    width: 180px;
+    height: 180px;
+  }
+  .tabSelector {
+    width: 100%;
+    justify-content: center;
+  }
+  .tabBtn {
+    padding: 7px 12px;
+    font-size: 0.75rem;
+  }
+  .primaryButton {
+    width: 100%;
+    justify-content: center;
+  }
+  .statsSummary {
+    width: 100%;
+    justify-content: space-around;
+  }
+}

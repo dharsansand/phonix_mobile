@@ -1,0 +1,190 @@
+/* ============================================================ */
+/* PHONIX MOBILE ANT-DESIGN TABLE STYLESHEET                     */
+/* ============================================================ */
+
+/* Table Card Container with Scoped Brand Palette */
+.tableContainer {
+  --bg-dark: #090d16;
+  --surface: #121826;
+  --cyan: #00d2ff;
+  --cyan-glow: rgba(0, 210, 255, 0.25);
+  --orange: #ff9f1c;
+  --text-white: #ffffff;
+  --text-muted: #94a3b8;
+  --border-light: rgba(0, 210, 255, 0.2);
+
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  border-radius: 16px;
+  background: rgba(18, 24, 38, 0.75);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid var(--border-light);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
+  margin-top: 1.5rem;
+  overflow: hidden;
+}
+
+/* ========================================= */
+/* STRIP DEFAULT WHITE BACKGROUNDS           */
+/* ========================================= */
+.tableContainer :global(.ant-table-wrapper),
+.tableContainer :global(.ant-table),
+.tableContainer :global(.ant-table-container),
+.tableContainer :global(.ant-table-content),
+.tableContainer :global(.ant-table-tbody) {
+  background: transparent !important;
+  color: var(--text-white) !important;
+}
+
+/* Table Header (Electric Cyan on Deep Navy) */
+.tableContainer :global(.ant-table-thead > tr > th) {
+  background: rgba(9, 13, 22, 0.85) !important;
+  color: var(--cyan) !important;
+  font-weight: 700 !important;
+  font-size: 0.85rem !important;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--border-light) !important;
+  border-inline-end: none !important;
+  padding: 14px 16px !important;
+  white-space: nowrap;
+}
+
+/* Table Rows & Cells */
+.tableContainer :global(.ant-table-tbody > tr > td) {
+  background: transparent !important;
+  color: #e2e8f0 !important;
+  font-size: 0.875rem !important;
+  border-bottom: 1px solid rgba(0, 210, 255, 0.1) !important;
+  border-inline-end: none !important;
+  padding: 16px !important;
+  white-space: nowrap;
+  transition: background-color 0.2s ease;
+}
+
+/* Subtle Alternating Row Stripe */
+.tableContainer :global(.ant-table-tbody > tr:nth-child(even) > td) {
+  background: rgba(255, 255, 255, 0.015) !important;
+}
+
+/* Row Hover State (Soft Cyan Highlight) */
+.tableContainer :global(.ant-table-tbody > tr:hover > td) {
+  background: rgba(0, 210, 255, 0.08) !important;
+}
+
+/* Empty Table State */
+.tableContainer :global(.ant-empty-description) {
+  color: var(--text-muted) !important;
+}
+
+/* ========================================= */
+/* FIRST COLUMN (ID) & ACTION LINKS          */
+/* ========================================= */
+/* Highlights the first cell (Order / Device ID) */
+.tableContainer :global(.ant-table-tbody > tr > td:first-child) {
+  color: var(--cyan) !important;
+  font-weight: 700;
+}
+
+/* Action Links (Edit, View, Manage) */
+.tableContainer :global(a),
+.tableContainer :global(button[type="button"]) {
+  color: var(--orange);
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.tableContainer :global(a:hover),
+.tableContainer :global(button[type="button"]:hover) {
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(255, 159, 28, 0.5);
+}
+
+/* ========================================= */
+/* PAGINATION CONTROLS                       */
+/* ========================================= */
+.tableContainer :global(.ant-pagination) {
+  margin: 18px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  flex-wrap: wrap !important;
+  gap: 8px !important;
+}
+
+/* Default Page Number Button */
+.tableContainer :global(.ant-pagination-item) {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid var(--border-light) !important;
+  border-radius: 8px !important;
+  transition: all 0.2s ease;
+}
+
+.tableContainer :global(.ant-pagination-item a) {
+  color: #e2e8f0 !important;
+}
+
+.tableContainer :global(.ant-pagination-item:hover) {
+  border-color: var(--cyan) !important;
+}
+
+/* Active Page Button (Electric Cyan Glow) */
+.tableContainer :global(.ant-pagination-item-active) {
+  background: var(--cyan) !important;
+  border-color: var(--cyan) !important;
+  box-shadow: 0 0 12px var(--cyan-glow);
+}
+
+.tableContainer :global(.ant-pagination-item-active a) {
+  color: #090d16 !important;
+  font-weight: 800 !important;
+}
+
+/* Pagination Prev / Next Buttons */
+.tableContainer :global(.ant-pagination-prev button),
+.tableContainer :global(.ant-pagination-next button) {
+  color: var(--cyan) !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid var(--border-light) !important;
+  border-radius: 8px !important;
+}
+
+/* Page Size Selector (Dropdown) */
+.tableContainer :global(.ant-pagination-options .ant-select-selector) {
+  background: rgba(9, 13, 22, 0.8) !important;
+  border: 1px solid var(--border-light) !important;
+  color: #ffffff !important;
+  border-radius: 8px !important;
+}
+
+.tableContainer :global(.ant-pagination-options .ant-select-arrow) {
+  color: var(--cyan) !important;
+}
+
+/* ========================================= */
+/* MOBILE VIEW                               */
+/* ========================================= */
+@media (max-width: 768px) {
+  .tableContainer {
+    margin-top: 1rem;
+    border-radius: 12px;
+  }
+
+  .tableContainer :global(.ant-table-thead > tr > th),
+  .tableContainer :global(.ant-table-tbody > tr > td) {
+    padding: 10px 12px !important;
+    font-size: 0.8rem !important;
+  }
+
+  .tableContainer :global(.ant-pagination) {
+    justify-content: center !important;
+    margin: 12px 6px !important;
+    gap: 4px !important;
+  }
+
+  .tableContainer :global(.ant-pagination-options) {
+    display: none !important;
+  }
+}

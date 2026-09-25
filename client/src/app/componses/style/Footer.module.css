@@ -1,0 +1,406 @@
+/* ============================================================ */
+/* PHONIX MOBILE FOOTER - DARK NEON TECH THEME                  */
+/* ============================================================ */
+
+.footerWrapper {
+  position: relative;
+  width: 100%;
+  background: #090d16;
+  color: #ffffff;
+  padding: 5rem 1.5rem 2.5rem 1.5rem;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  overflow: hidden;
+  border-top: 1px solid rgba(0, 210, 255, 0.25);
+  box-shadow: 0 -15px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* Mouse Tracking Ambient Spotlight */
+.spotlightGlow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    500px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(0, 210, 255, 0.08),
+    transparent 70%
+  );
+  z-index: 1;
+  transition: opacity 0.2s ease;
+}
+
+.container {
+  max-width: 1360px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* ==================== 1. QUICK REPAIR ESTIMATE BANNER ==================== */
+.repairBanner {
+  background: rgba(18, 24, 38, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 210, 255, 0.3);
+  border-radius: 24px;
+  padding: 2.5rem 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 4.5rem;
+  box-shadow:
+    0 20px 45px rgba(0, 0, 0, 0.6),
+    0 0 25px rgba(0, 210, 255, 0.08);
+  flex-wrap: wrap;
+}
+
+.cyanEyebrow {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #00d2ff;
+  display: block;
+  margin-bottom: 0.4rem;
+  text-transform: uppercase;
+}
+
+.bannerText h3 {
+  font-size: 1.7rem;
+  font-weight: 900;
+  color: #ffffff;
+  margin: 0 0 0.4rem 0;
+  letter-spacing: -0.02em;
+}
+
+.bannerText p {
+  font-size: 0.95rem;
+  color: #94a3b8;
+  margin: 0;
+}
+
+.bannerAction {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.whatsappQuoteBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #22c55e;
+  color: #090d16;
+  padding: 0.85rem 1.6rem;
+  border-radius: 9999px;
+  font-weight: 800;
+  font-size: 0.9rem;
+  text-decoration: none;
+  box-shadow: 0 4px 18px rgba(34, 197, 94, 0.4);
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.whatsappQuoteBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(34, 197, 94, 0.6);
+  filter: brightness(1.05);
+}
+
+.callNowBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0, 210, 255, 0.1);
+  border: 1px solid rgba(0, 210, 255, 0.35);
+  color: #00d2ff;
+  padding: 0.85rem 1.6rem;
+  border-radius: 9999px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.callNowBtn:hover {
+  background: rgba(0, 210, 255, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 0 16px rgba(0, 210, 255, 0.35);
+}
+
+/* ==================== 2. MAIN FOOTER GRID ==================== */
+.footerGrid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1.35fr;
+  gap: 3.5rem;
+  margin-bottom: 4rem;
+}
+
+/* Brand Column */
+.brandLogo {
+  display: inline-block;
+  margin-bottom: 1.25rem;
+  text-decoration: none;
+}
+
+.logoImg {
+  height: 46px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 12px rgba(0, 210, 255, 0.35));
+}
+
+.brandBio {
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: #94a3b8;
+  margin-bottom: 1.5rem;
+  max-width: 400px;
+}
+
+/* Operational Pulse Badge */
+.statusBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(18, 24, 38, 0.9);
+  border: 1px solid rgba(0, 210, 255, 0.25);
+  padding: 6px 14px;
+  border-radius: 9999px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: #00d2ff;
+  margin-bottom: 1.75rem;
+}
+
+.pulseDot {
+  width: 7px;
+  height: 7px;
+  background-color: #22c55e;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #22c55e;
+  animation: pulseLive 2s infinite;
+}
+
+@keyframes pulseLive {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.3);
+    opacity: 0.6;
+  }
+}
+
+/* Social Icon Buttons */
+.socialGroup {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.socialBtn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(0, 210, 255, 0.2);
+  color: #cbd5e1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+
+.socialBtn:hover {
+  background: rgba(0, 210, 255, 0.18);
+  color: #00d2ff;
+  border-color: #00d2ff;
+  transform: translateY(-2px);
+  box-shadow: 0 0 14px rgba(0, 210, 255, 0.35);
+}
+
+.whatsappBtn:hover {
+  background: #22c55e;
+  color: #090d16;
+  border-color: #22c55e;
+  box-shadow: 0 0 16px rgba(34, 197, 94, 0.5);
+}
+
+/* Column Titles */
+.colTitle {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+  margin: 0 0 1.5rem 0;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.colTitle::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 28px;
+  height: 2px;
+  background: #ff9f1c;
+  border-radius: 2px;
+  box-shadow: 0 0 8px rgba(255, 159, 28, 0.6);
+}
+
+.linkList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.linkList a {
+  color: #94a3b8;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  display: inline-block;
+}
+
+.linkList a:hover {
+  color: #00d2ff;
+  transform: translateX(4px);
+}
+
+/* Contact Column */
+.contactCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.contactRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: #94a3b8;
+  line-height: 1.5;
+}
+
+.contactRow a {
+  color: #cbd5e1;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.contactRow a:hover {
+  color: #00d2ff;
+}
+
+.contactIcon {
+  color: #00d2ff;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.certPill {
+  margin-top: 0.75rem;
+  padding: 8px 14px;
+  border-radius: 12px;
+  background: rgba(255, 159, 28, 0.1);
+  border: 1px solid rgba(255, 159, 28, 0.35);
+  display: inline-block;
+}
+
+.certPill span {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #ff9f1c;
+}
+
+/* ==================== 3. BOTTOM BAR ==================== */
+.bottomBar {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.copyText {
+  font-size: 0.85rem;
+  color: #64748b;
+  margin: 0;
+}
+
+.bottomLinks {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+.bottomLinks a {
+  color: #94a3b8;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.bottomLinks a:hover {
+  color: #00d2ff;
+}
+
+/* ==================== 📱 RESPONSIVENESS ==================== */
+@media (max-width: 1080px) {
+  .footerGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .repairBanner {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem 1.5rem;
+    gap: 1.5rem;
+  }
+  .bannerAction {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .footerWrapper {
+    padding: 4rem 1rem 2rem 1rem;
+  }
+  .footerGrid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .bottomBar {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.75rem;
+  }
+  .whatsappQuoteBtn,
+  .callNowBtn {
+    width: 100%;
+    justify-content: center;
+  }
+}

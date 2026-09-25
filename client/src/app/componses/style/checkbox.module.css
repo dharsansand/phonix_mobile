@@ -1,0 +1,94 @@
+:root {
+  --space-cadet: #25344f;
+  --slate-gray: #617891;
+  --tan: #d5b893;
+}
+
+/* Wrapper */
+.checkboxWrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.25rem;
+}
+
+/* Clickable container */
+.checkboxLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Hidden native input */
+.hiddenInput {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Custom Checkbox Box */
+.customBox {
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  border: 2px solid #cbd5e1;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease-in-out;
+  flex-shrink: 0;
+}
+
+/* Checkmark SVG Icon */
+.checkIcon {
+  width: 14px;
+  height: 14px;
+  stroke: var(--space-cadet); /* Dark stroke on tan background */
+  stroke-dasharray: 24;
+  stroke-dashoffset: 24;
+  transition: stroke-dashoffset 0.2s ease-in-out;
+}
+
+/* Hover State */
+.checkboxLabel:hover .customBox {
+  border-color: var(--tan);
+  box-shadow: 0 0 0 3px rgba(213, 184, 147, 0.2);
+}
+
+/* Checked State (When checked, turn box Tan) */
+.hiddenInput:checked + .customBox {
+  background-color: var(--tan);
+  border-color: var(--tan);
+  box-shadow: 0 2px 8px rgba(213, 184, 147, 0.35);
+}
+
+/* Reveal Checkmark SVG on Checked */
+.hiddenInput:checked + .customBox .checkIcon {
+  stroke-dashoffset: 0;
+}
+
+/* Text Label */
+.labelText {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--space-cadet);
+  line-height: 1;
+}
+
+/* ============================
+   MOBILE RESPONSIVE
+   ============================ */
+
+@media (max-width: 640px) {
+  .checkboxLabel {
+    padding: 4px 0; /* Larger touch area for mobile thumbs */
+  }
+
+  .labelText {
+    font-size: 0.85rem;
+  }
+}

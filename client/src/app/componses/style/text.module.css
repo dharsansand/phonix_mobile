@@ -1,0 +1,87 @@
+:root {
+  --space-cadet: #25344f;
+  --slate-gray: #617891;
+  --tan: #d5b893;
+  --coffee: #6f4d38;
+  --caput-mortuum: #632024;
+}
+
+/* Container */
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  width: 100%;
+}
+
+/* Label */
+.label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #e2e8f0;
+  letter-spacing: 0.01em;
+}
+
+/* Asterisk (*) */
+.requiredStar {
+  color: #f87171;
+  font-weight: 600;
+  margin-left: 2px;
+}
+
+/* Input Field */
+.inputField {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.05); /* Subtle dark glass look */
+  border: 1px solid rgba(97, 120, 145, 0.4); /* Slate-gray border */
+  border-radius: 8px;
+  padding: 0.65rem 0.9rem;
+  font-size: 0.9rem;
+  color: #0a0a0a;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+  box-sizing: border-box;
+}
+
+/* Placeholder text */
+.inputField::placeholder {
+  color: #64748b;
+}
+
+/* Focus State with Tan accent */
+.inputField:focus {
+  border-color: var(--tan);
+  background-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 3px rgba(213, 184, 147, 0.18);
+}
+
+/* Validation Error Message */
+.errorMessage {
+  color: #f87171;
+  font-size: 0.8rem;
+  font-weight: 400;
+  min-height: 1.1rem;
+  display: flex;
+  align-items: center;
+}
+
+/* ============================
+   MOBILE RESPONSIVE STYLES
+   ============================ */
+
+@media (max-width: 640px) {
+  .label {
+    font-size: 0.825rem;
+  }
+
+  .inputField {
+    /* 16px prevents iOS Safari from automatically zooming into the input */
+    font-size: 16px;
+    padding: 0.75rem 0.85rem;
+    border-radius: 7px;
+  }
+
+  .errorMessage {
+    font-size: 0.75rem;
+  }
+}

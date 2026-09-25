@@ -1,26 +1,65 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Brand Theme Colors */
+  --background: #090d16; /* Midnight Black (Main background) */
+  --surface: #121826; /* Tech Navy (Cards, navbar, inputs) */
+  --foreground: #ffffff; /* Pure White (Headings & main text) */
+  --muted: #94a3b8; /* Muted Silver (Descriptions / subtitles) */
+
+  --primary: #00d2ff; /* Electric Cyan (Neon glow, icons, active) */
+  --secondary: #ff9f1c; /* Gear Orange (CTA buttons, badges) */
+  --accent: #d946ef; /* Cyber Magenta (Highlights, gradient lines) */
+  --success: #22c55e; /* Neon Green (WhatsApp & Phone buttons) */
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-surface: var(--surface);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --color-muted: var(--muted);
+
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+  --color-success: var(--success);
+
+  --font-sans: var(--font-geist-sans), Arial, Helvetica, sans-serif;
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html,
+body {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden; /* Hides horizontal scroll */
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+}
+
+/* Toastify Custom Styles to match your dark theme */
+.Toastify__toast {
+  background-color: var(--surface) !important;
+  color: var(--foreground) !important;
+  border: 1px solid rgba(0, 210, 255, 0.2); /* Subtle cyan border */
+}
+
+.Toastify__toast-icon svg {
+  fill: var(
+    --primary
+  ) !important; /* FIXED: Now uses Cyan instead of undefined --tan */
+}
+
+.Toastify__close-button {
+  color: var(--muted) !important;
+  opacity: 0.8;
+}
+
+.Toastify__close-button:hover {
+  color: var(--foreground) !important;
+  opacity: 1;
 }

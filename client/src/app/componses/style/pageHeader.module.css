@@ -1,0 +1,116 @@
+/* ============================================================ */
+/* PHONIX MOBILE ADMIN HEADER                                   */
+/* ============================================================ */
+
+.headerContainer {
+  /* Scoped Phonix Mobile Palette (Pure CSS Module Selector) */
+  --bg-dark: #090d16;
+  --surface: #121826;
+  --cyan: #00d2ff;
+  --cyan-glow: rgba(0, 210, 255, 0.35);
+  --orange: #ff9f1c;
+  --orange-glow: rgba(255, 159, 28, 0.35);
+  --text-white: #ffffff;
+  --text-muted: #94a3b8;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+/* Bright, clean white title */
+.title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--text-white);
+  letter-spacing: -0.02em;
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* Subtitle in muted silver */
+.subtitle {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Neon Orange / Brand Action Button */
+.addButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, var(--orange) 0%, #f58300 100%);
+  color: #090d16;
+  padding: 0.7rem 1.4rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  border-radius: 0.65rem;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 4px 18px var(--orange-glow);
+  transition: all 0.25s ease-in-out;
+  white-space: nowrap;
+}
+
+.addButton:hover {
+  box-shadow: 0 6px 24px rgba(255, 159, 28, 0.6);
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+}
+
+.addButton:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* ============================
+   MOBILE RESPONSIVE STYLES 
+   ============================ */
+
+@media (max-width: 640px) {
+  .headerContainer {
+    flex-direction: column;
+    align-items: stretch; /* Button takes full width on mobile */
+    margin-bottom: 1.5rem;
+    gap: 1.15rem;
+  }
+
+  .textContainer {
+    gap: 0.25rem;
+  }
+
+  .title {
+    font-size: 1.4rem;
+  }
+
+  .subtitle {
+    font-size: 0.825rem;
+  }
+
+  .addButton {
+    width: 100%;
+    min-height: 48px; /* Touch-friendly size */
+    padding: 0.8rem 1rem;
+    font-size: 0.92rem;
+  }
+}
+
+/* Very Small Mobile Screens (< 380px) */
+@media (max-width: 380px) {
+  .title {
+    font-size: 1.25rem;
+  }
+}

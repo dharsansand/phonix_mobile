@@ -1,0 +1,655 @@
+/* ============================================================ */
+/* PHONIX MOBILE PRODUCT CATALOGUE (DARK NEON TECH THEME)       */
+/* ============================================================ */
+
+.pageWrapper {
+  width: 100%;
+  background-color: #090d16;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: #ffffff;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* ==================== 1. HERO BANNER ==================== */
+.heroSection {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  background: radial-gradient(circle at center, #162032 0%, #090d16 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(0, 210, 255, 0.2);
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    transparent 40%,
+    rgba(9, 13, 22, 0.95) 100%
+  );
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  padding: 0 1.5rem;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #94a3b8;
+  margin-bottom: 0.85rem;
+}
+
+.breadcrumb a {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: #94a3b8;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.breadcrumb a:hover {
+  color: #00d2ff;
+}
+
+.activeCrumb {
+  color: #ff9f1c;
+  font-weight: 700;
+}
+
+.heroBadge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #00d2ff;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+.heroTitle {
+  font-size: 2.8rem;
+  font-weight: 900;
+  color: #ffffff;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: -0.02em;
+}
+
+.heroSub {
+  font-size: 1rem;
+  color: #94a3b8;
+  margin: 0;
+}
+
+/* ==================== 2. MAIN CATALOGUE LAYOUT ==================== */
+.catalogueLayout {
+  max-width: 1420px;
+  margin: 0 auto;
+  padding: 3.5rem 1.5rem 6rem 1.5rem;
+  display: flex;
+  gap: 2.5rem;
+}
+
+/* ==================== LEFT FILTER SIDEBAR ==================== */
+.filterSidebar {
+  width: 290px;
+  flex-shrink: 0;
+  background: rgba(18, 24, 38, 0.85);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(0, 210, 255, 0.2);
+  border-radius: 24px;
+  padding: 1.75rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  height: fit-content;
+  position: sticky;
+  top: 130px;
+}
+
+.sidebarHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 1.25rem;
+}
+
+.cyanIcon {
+  color: #00d2ff;
+}
+
+.sidebarHeader h3 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
+}
+
+/* Search Box inside Sidebar */
+.searchBox {
+  display: flex;
+  align-items: center;
+  background: rgba(9, 13, 22, 0.7);
+  border: 1px solid rgba(0, 210, 255, 0.2);
+  border-radius: 12px;
+  padding: 8px 12px;
+  margin-bottom: 1.5rem;
+  gap: 8px;
+}
+
+.searchIcon {
+  color: #00d2ff;
+}
+
+.searchInput {
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 0.88rem;
+  color: #ffffff;
+  width: 100%;
+}
+
+.searchInput::placeholder {
+  color: #94a3b8;
+}
+
+.filterGroup {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.filterTitle {
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: #00d2ff;
+  letter-spacing: 0.5px;
+  margin: 0 0 0.85rem 0;
+  text-transform: uppercase;
+}
+
+.sortSelect {
+  background: rgba(9, 13, 22, 0.8);
+  border: 1px solid rgba(0, 210, 255, 0.25);
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-size: 0.88rem;
+  color: #ffffff;
+  outline: none;
+  cursor: pointer;
+}
+
+/* Radio categories */
+.radioList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.radioLabel {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: #cbd5e1;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.radioLabel:hover {
+  color: #00d2ff;
+}
+
+.radioInput {
+  accent-color: #00d2ff;
+}
+
+.resetBtn {
+  width: 100%;
+  padding: 10px;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #f87171;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.resetBtn:hover {
+  background: #ef4444;
+  color: #ffffff;
+}
+
+/* ==================== RIGHT PRODUCTS MAIN AREA ==================== */
+.productsMainArea {
+  flex: 1;
+}
+
+.productsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+}
+
+/* ==================== CARD STYLES ==================== */
+.card {
+  background: rgba(18, 24, 38, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 210, 255, 0.18);
+  border-radius: 22px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: #00d2ff;
+  box-shadow:
+    0 20px 45px rgba(0, 0, 0, 0.8),
+    0 0 20px rgba(0, 210, 255, 0.12);
+}
+
+.cardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.85rem;
+}
+
+.inStockBadge {
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: rgba(34, 197, 94, 0.12);
+  color: #22c55e;
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  text-transform: uppercase;
+}
+
+.lowStockBadge {
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: rgba(255, 159, 28, 0.12);
+  color: #ff9f1c;
+  border: 1px solid rgba(255, 159, 28, 0.3);
+  text-transform: uppercase;
+}
+
+.outOfStockBadge {
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: rgba(239, 68, 68, 0.12);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  text-transform: uppercase;
+}
+
+.wishBtn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #cbd5e1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.wishBtn:hover {
+  background: rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+}
+
+.imgLink {
+  text-decoration: none;
+  display: block;
+}
+
+.imgStage {
+  width: 100%;
+  height: 200px;
+  background: #0d1424;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+
+.productImg {
+  max-width: 85%;
+  max-height: 85%;
+  object-fit: contain;
+  transition: transform 0.4s ease;
+}
+
+.card:hover .productImg {
+  transform: scale(1.08);
+}
+
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.categoryLabel {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #00d2ff;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+}
+
+.productTitle {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.35;
+}
+
+.productTitle a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.productTitle a:hover {
+  color: #00d2ff;
+}
+
+/* Variant Pills */
+.variantBox {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 0.85rem;
+}
+
+.variantLabel {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #94a3b8;
+  text-transform: uppercase;
+}
+
+.variantList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.varPill {
+  background: rgba(9, 13, 22, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #cbd5e1;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.varPill:hover {
+  border-color: #00d2ff;
+  color: #00d2ff;
+}
+
+.activeVarPill {
+  background: #00d2ff !important;
+  color: #090d16 !important;
+  border-color: #00d2ff !important;
+  font-weight: 700;
+}
+
+.specBadges {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  color: #94a3b8;
+  margin-bottom: 0.85rem;
+}
+
+/* Quantity Selector */
+.unitRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  background: rgba(9, 13, 22, 0.75);
+  padding: 6px 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.qtyLabel {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #94a3b8;
+}
+
+.qtyBox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(18, 24, 38, 0.9);
+  padding: 3px 6px;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 210, 255, 0.2);
+}
+
+.qtyBtn {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  border: none;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.qtyBtn:hover:not(:disabled) {
+  background: #00d2ff;
+  color: #090d16;
+}
+
+.qtyVal {
+  font-size: 0.82rem;
+  min-width: 48px;
+  text-align: center;
+  color: #cbd5e1;
+}
+
+.qtyVal strong {
+  color: #00d2ff;
+}
+
+/* Card Footer */
+.cardFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 0.85rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.priceContainer {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.price {
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: #ffffff;
+}
+
+.strikePrice {
+  font-size: 0.8rem;
+  color: #64748b;
+  text-decoration: line-through;
+}
+
+.addBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(135deg, #ff9f1c 0%, #f58300 100%);
+  color: #090d16;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(255, 159, 28, 0.35);
+  transition: all 0.25s ease;
+}
+
+.addBtn:hover:not(:disabled) {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(255, 159, 28, 0.55);
+}
+
+.addBtn:disabled {
+  background: #334155;
+  color: #94a3b8;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.loadingBox,
+.emptyBox {
+  text-align: center;
+  padding: 5rem 1rem;
+  background: rgba(18, 24, 38, 0.85);
+  border: 1px solid rgba(0, 210, 255, 0.2);
+  border-radius: 20px;
+  color: #94a3b8;
+}
+
+/* Pagination */
+.paginationRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 3.5rem;
+}
+
+.pageBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 16px;
+  background: rgba(18, 24, 38, 0.9);
+  border: 1px solid rgba(0, 210, 255, 0.25);
+  color: #00d2ff;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.pageBtn:hover:not(:disabled) {
+  background: #00d2ff;
+  color: #090d16;
+}
+
+.pageBtn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.pageNumbers {
+  display: flex;
+  gap: 6px;
+}
+
+.pageNumBtn {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #cbd5e1;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.pageNumActive {
+  background: #00d2ff !important;
+  color: #090d16 !important;
+  border-color: #00d2ff !important;
+}
+
+/* ==================== 📱 RESPONSIVENESS ==================== */
+@media (max-width: 1150px) {
+  .productsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 880px) {
+  .catalogueLayout {
+    flex-direction: column;
+  }
+  .filterSidebar {
+    width: 100%;
+    position: static;
+  }
+}
+
+@media (max-width: 600px) {
+  .heroTitle {
+    font-size: 2rem;
+  }
+  .productsGrid {
+    grid-template-columns: 1fr;
+  }
+}

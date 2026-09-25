@@ -1,0 +1,129 @@
+.wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 0.35rem;
+  color: #333333;
+}
+
+.requiredStar {
+  color: #e53e3e;
+  margin-left: 0.25rem;
+}
+
+.selectBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 0.8rem;
+  font-size: 0.95rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background-color: #ffffff;
+  cursor: pointer;
+  user-select: none;
+  transition: border-color 0.2s;
+}
+
+.selectBox:hover {
+  border-color: #9ca3af;
+}
+
+.inputError {
+  border-color: #e53e3e !important;
+}
+
+.selectedValue {
+  color: #1f2937;
+}
+
+.placeholder {
+  color: #9ca3af;
+}
+
+.arrow {
+  font-size: 0.75rem;
+  color: #6b7280;
+}
+
+/* Dropdown Menu */
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin-top: 4px;
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  z-index: 50;
+  max-height: 250px;
+  display: flex;
+  flex-direction: column;
+}
+
+.searchContainer {
+  padding: 0.5rem;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 0.4rem 0.6rem;
+  font-size: 0.875rem;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.searchInput:focus {
+  border-color: #3b82f6;
+}
+
+.optionsList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  max-height: 180px;
+}
+
+.optionItem {
+  padding: 0.6rem 0.8rem;
+  font-size: 0.9rem;
+  color: #374151;
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.optionItem:hover {
+  background-color: #f3f4f6;
+}
+
+.selectedItem {
+  background-color: #eff6ff;
+  color: #2563eb;
+  font-weight: 500;
+}
+
+.noData {
+  padding: 0.75rem;
+  text-align: center;
+  color: #9ca3af;
+  font-size: 0.875rem;
+}
+
+.errorMessage {
+  color: #e53e3e;
+  font-size: 0.8rem;
+  margin-top: 0.3rem;
+}

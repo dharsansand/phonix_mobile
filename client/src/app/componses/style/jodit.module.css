@@ -1,0 +1,39 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+  width: 100%;
+}
+
+.label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 0.35rem;
+  color: #333333;
+}
+
+.requiredStar {
+  color: #e53e3e;
+  margin-left: 0.25rem;
+}
+
+.editorContainer {
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid #d1d5db;
+  transition: border-color 0.2s;
+}
+
+.editorContainer:focus-within {
+  border-color: #3b82f6;
+}
+
+.inputError {
+  border-color: #e53e3e !important;
+}
+
+.errorMessage {
+  color: #e53e3e;
+  font-size: 0.8rem;
+  margin-top: 0.35rem;
+}

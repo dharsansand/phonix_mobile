@@ -1,0 +1,50 @@
+.selectWrapper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 0.35rem;
+  color: #333333;
+}
+
+.requiredStar {
+  color: #e53e3e;
+  margin-left: 0.25rem;
+}
+
+.selectField {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  font-size: 0.95rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background-color: #ffffff;
+  color: #1f2937;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  
+
+  appearance: auto;
+}
+
+.selectField:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+.selectField:disabled {
+  background-color: #f3f4f6;
+  cursor: not-allowed;
+}
+
+.errorMessage {
+  color: #e53e3e;
+  font-size: 0.8rem;
+  margin-top: 0.3rem;
+}

@@ -1,0 +1,536 @@
+/* ============================================================ */
+/* PHONIX MOBILE REACT-BITS SPOTLIGHT HERO BANNER              */
+/* ============================================================ */
+
+.fullBannerSection {
+  position: relative;
+  width: 100%;
+  max-width: 1420px;
+  margin: 6.5rem auto 3rem auto; /* Clears floating navbar */
+  padding: 0 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  box-sizing: border-box;
+}
+
+.bannerSlide {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* React Bits Interactive Card */
+.bannerCard {
+  position: relative;
+  width: 100%;
+  min-height: 540px;
+  background: rgba(16, 22, 35, 0.88);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid rgba(0, 210, 255, 0.25);
+  border-radius: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3.5rem 4rem;
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.85),
+    0 0 35px rgba(0, 210, 255, 0.08);
+  overflow: hidden;
+  transition: border-color 0.3s ease;
+}
+
+/* 🟢 React Bits Cursor-Tracking Spotlight */
+.spotlight {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    650px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(0, 210, 255, 0.14),
+    transparent 80%
+  );
+  z-index: 1;
+  transition: opacity 0.2s ease;
+}
+
+/* Theme Ambient Glows */
+.ambientNeonGlow {
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 500px;
+  height: 500px;
+  filter: blur(70px);
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.cyan .ambientNeonGlow {
+  background: radial-gradient(
+    circle,
+    rgba(0, 210, 255, 0.35) 0%,
+    transparent 70%
+  );
+}
+.cyan .highlightText {
+  color: #00d2ff;
+  text-shadow: 0 0 25px rgba(0, 210, 255, 0.45);
+}
+
+.orange .ambientNeonGlow {
+  background: radial-gradient(
+    circle,
+    rgba(255, 159, 28, 0.35) 0%,
+    transparent 70%
+  );
+}
+.orange .highlightText {
+  color: #ff9f1c;
+  text-shadow: 0 0 25px rgba(255, 159, 28, 0.45);
+}
+
+.magenta .ambientNeonGlow {
+  background: radial-gradient(
+    circle,
+    rgba(217, 70, 239, 0.35) 0%,
+    transparent 70%
+  );
+}
+.magenta .highlightText {
+  color: #d946ef;
+  text-shadow: 0 0 25px rgba(217, 70, 239, 0.45);
+}
+
+/* ==================== LEFT CONTENT ==================== */
+.leftCol {
+  flex: 1.25;
+  max-width: 650px;
+  position: relative;
+  z-index: 3;
+}
+
+/* Offer Badge Wrapper */
+.offerBadgeWrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: rgba(0, 210, 255, 0.08);
+  border: 1px solid rgba(0, 210, 255, 0.35);
+  border-radius: 9999px;
+  margin-bottom: 1.25rem;
+}
+
+.pulseDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 10px #22c55e;
+  animation: pulse 1.8s infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.3);
+  }
+}
+
+.offerTagText {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: #00d2ff;
+  text-transform: uppercase;
+}
+
+/* Main Title */
+.mainTitle {
+  font-size: 3rem;
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  margin: 0 0 1.2rem 0;
+  text-transform: uppercase;
+}
+
+.description {
+  font-size: 1.02rem;
+  color: #94a3b8;
+  line-height: 1.6;
+  margin: 0 0 1.75rem 0;
+  max-width: 540px;
+}
+
+/* Feature Badges */
+.featurePills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-bottom: 2rem;
+}
+
+.featurePill {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #cbd5e1;
+}
+
+/* Action Buttons */
+.actionRow {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.primaryBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: linear-gradient(135deg, #ff9f1c 0%, #f58300 100%);
+  color: #090d16;
+  padding: 0.95rem 1.85rem;
+  border-radius: 9999px;
+  font-size: 0.88rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(255, 159, 28, 0.4);
+  transition: all 0.25s ease;
+}
+
+.primaryBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 28px rgba(255, 159, 28, 0.6);
+  filter: brightness(1.05);
+}
+
+.btnArrow {
+  font-size: 1.1rem;
+  transition: transform 0.2s ease;
+}
+
+.primaryBtn:hover .btnArrow {
+  transform: translateX(4px);
+}
+
+.secondaryBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(0, 210, 255, 0.08);
+  border: 1px solid rgba(0, 210, 255, 0.35);
+  color: #00d2ff;
+  padding: 0.95rem 1.6rem;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.secondaryBtn:hover {
+  background: rgba(0, 210, 255, 0.18);
+  transform: translateY(-2px);
+  box-shadow: 0 0 16px rgba(0, 210, 255, 0.3);
+}
+
+/* ==================== RIGHT GRAPHIC SHOWCASE ==================== */
+.rightCol {
+  position: relative;
+  flex: 1;
+  height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+}
+
+/* Floating Discount Tag */
+.floatingDiscountBadge {
+  position: absolute;
+  top: 15px;
+  left: 0;
+  background: rgba(18, 24, 38, 0.95);
+  border: 1.5px solid #ff9f1c;
+  padding: 8px 18px;
+  border-radius: 14px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.7),
+    0 0 20px rgba(255, 159, 28, 0.3);
+  animation: floatTag 3s ease-in-out infinite alternate;
+}
+
+@keyframes floatTag {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-8px);
+  }
+}
+
+.discountSmall {
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #ff9f1c;
+}
+
+.discountBig {
+  font-size: 1.05rem;
+  font-weight: 900;
+  color: #ffffff;
+}
+
+/* Cyber Rotating Rings */
+.cyberRingOuter {
+  position: absolute;
+  width: 440px;
+  height: 440px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(0, 210, 255, 0.2);
+  z-index: 1;
+}
+
+.cyberRingInner {
+  position: absolute;
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  border: 1.5px dashed rgba(0, 210, 255, 0.4);
+  z-index: 1;
+  animation: rotateRing 30s linear infinite;
+}
+
+@keyframes rotateRing {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Image Showcase Frame */
+.imageFrame {
+  position: relative;
+  z-index: 2;
+  width: 440px;
+  height: 320px;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 210, 255, 0.35);
+  box-shadow:
+    0 25px 50px rgba(0, 0, 0, 0.8),
+    0 0 25px rgba(0, 210, 255, 0.15);
+  background-color: #090d16;
+}
+
+.productImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.screenOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    transparent 60%,
+    rgba(9, 13, 22, 0.85) 100%
+  );
+  pointer-events: none;
+}
+
+/* ==================== CONTROLS ==================== */
+.controlsRow {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.navBtn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(18, 24, 38, 0.85);
+  border: 1px solid rgba(0, 210, 255, 0.25);
+  color: #00d2ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.navBtn:hover {
+  background: #00d2ff;
+  color: #090d16;
+  box-shadow: 0 0 16px rgba(0, 210, 255, 0.5);
+  transform: scale(1.08);
+}
+
+.dotsPagination {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.activeDot {
+  width: 26px;
+  border-radius: 12px;
+  background: #00d2ff;
+  box-shadow: 0 0 10px rgba(0, 210, 255, 0.6);
+}
+/* ================= MAGENTA THEME (FESTIVE ACCESSORIES) ================= */
+.magenta .ambientNeonGlow {
+  background: radial-gradient(
+    circle,
+    rgba(217, 70, 239, 0.45) 0%,
+    transparent 70%
+  );
+}
+
+.magenta .offerBadgeWrapper {
+  background: rgba(217, 70, 239, 0.12);
+  border-color: rgba(217, 70, 239, 0.45);
+}
+
+.magenta .offerTagText {
+  color: #e879f9;
+  text-shadow: 0 0 10px rgba(217, 70, 239, 0.5);
+}
+
+.magenta .highlightText {
+  color: #d946ef;
+  text-shadow: 0 0 25px rgba(217, 70, 239, 0.6);
+}
+
+.magenta .floatingDiscountBadge {
+  border-color: #d946ef;
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.7),
+    0 0 20px rgba(217, 70, 239, 0.45);
+}
+
+.magenta .discountSmall {
+  color: #e879f9;
+}
+
+.magenta .cyberRingOuter {
+  border-color: rgba(217, 70, 239, 0.25);
+}
+
+.magenta .cyberRingInner {
+  border-color: rgba(217, 70, 239, 0.45);
+}
+
+.magenta .imageFrame {
+  border-color: rgba(217, 70, 239, 0.4);
+  box-shadow:
+    0 25px 50px rgba(0, 0, 0, 0.8),
+    0 0 30px rgba(217, 70, 239, 0.25);
+}
+
+.magenta .activeDot {
+  background: #d946ef;
+  box-shadow: 0 0 12px rgba(217, 70, 239, 0.7);
+}
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 1100px) {
+  .bannerCard {
+    padding: 3rem 2.5rem;
+  }
+  .mainTitle {
+    font-size: 2.4rem;
+  }
+  .imageFrame {
+    width: 360px;
+    height: 270px;
+  }
+}
+
+@media (max-width: 900px) {
+  .bannerCard {
+    flex-direction: column;
+    text-align: center;
+    padding: 2.75rem 1.75rem;
+    gap: 2.25rem;
+  }
+  .leftCol {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .featurePills,
+  .actionRow {
+    justify-content: center;
+  }
+  .rightCol {
+    width: 100%;
+    height: 320px;
+  }
+  .cyberRingOuter,
+  .cyberRingInner {
+    display: none;
+  }
+}
+
+@media (max-width: 540px) {
+  .fullBannerSection {
+    margin-top: 5.5rem;
+    padding: 0 1rem;
+  }
+  .bannerCard {
+    padding: 2rem 1.25rem;
+  }
+  .mainTitle {
+    font-size: 1.8rem;
+  }
+  .primaryBtn,
+  .secondaryBtn {
+    width: 100%;
+    justify-content: center;
+  }
+  .imageFrame {
+    width: 100%;
+    max-width: 310px;
+    height: 220px;
+  }
+}

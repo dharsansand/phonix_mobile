@@ -1,0 +1,390 @@
+/* ============================================================ */
+/* SCROLLTIDE TECH DECK (DARK NEON MINIMALIST)                  */
+/* ============================================================ */
+
+.scrolltideSection {
+  width: 100%;
+  padding: 6.5rem 1.5rem 7.5rem 1.5rem;
+  background-color: #090d16;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1360px;
+  margin: 0 auto;
+}
+
+/* ================= 1. HEADER ================= */
+.headerBlock {
+  max-width: 820px;
+  margin-bottom: 3.5rem;
+}
+
+.eyebrowBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #00d2ff;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.pulseDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 8px #22c55e;
+}
+
+.mainHeading {
+  font-size: 3.4rem;
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin: 0 0 1.25rem 0;
+}
+
+.subHeading {
+  font-size: 1.05rem;
+  color: #94a3b8;
+  line-height: 1.65;
+  margin: 0 0 1.75rem 0;
+  max-width: 700px;
+}
+
+/* Consultation Badge */
+.consultBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  background: rgba(18, 24, 38, 0.9);
+  border: 1px solid rgba(0, 210, 255, 0.25);
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  color: #ffffff;
+  margin-bottom: 2.25rem;
+}
+
+.badgeBolt {
+  color: #ff9f1c;
+  font-size: 1rem;
+}
+
+.badgeLink {
+  color: #00d2ff;
+  font-weight: 700;
+  text-decoration: none;
+  margin-left: 4px;
+}
+
+.badgeLink:hover {
+  text-decoration: underline;
+}
+
+/* Filter Pills Track */
+.filterTrack {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.filterPill {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #94a3b8;
+  font-size: 0.84rem;
+  font-weight: 600;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filterPill:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.filterActive {
+  background: #ffffff !important;
+  color: #090d16 !important;
+  border-color: #ffffff;
+  font-weight: 800;
+}
+
+/* ================= 2. 3-DECK TECH GRID ================= */
+.deckGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+/* Card Base */
+.deckCard {
+  position: relative;
+  background: rgba(15, 20, 32, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.deckCard:hover {
+  transform: translateY(-4px);
+  border-color: rgba(0, 210, 255, 0.35);
+  box-shadow:
+    0 25px 55px rgba(0, 0, 0, 0.8),
+    0 0 25px rgba(0, 210, 255, 0.1);
+}
+
+/* Top Neon Glow Beam (Signature Highlight) */
+.topBeam {
+  position: absolute;
+  top: 0;
+  left: 15%;
+  right: 15%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #00d2ff, transparent);
+  box-shadow: 0 0 15px #00d2ff;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.deckCard:hover .topBeam {
+  opacity: 1;
+}
+
+/* Inside Preview Stage */
+.previewStage {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  background: #0b0f19;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.stageBadge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #00d2ff;
+  background: rgba(0, 210, 255, 0.08);
+  border: 1px solid rgba(0, 210, 255, 0.25);
+  padding: 4px 10px;
+  border-radius: 9999px;
+}
+
+/* Preview 1: Focus Visual */
+.focusContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.focusFrame {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.bracket {
+  color: #ff9f1c;
+  font-size: 1.6rem;
+  animation: pulseBracket 2s infinite alternate;
+}
+
+@keyframes pulseBracket {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+.focusSubtitle {
+  font-size: 0.72rem;
+  color: #94a3b8;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* Preview 2: Circuit Mesh */
+.meshContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.circuitGrid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0, 210, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 210, 255, 0.08) 1px, transparent 1px);
+  background-size: 20px 20px;
+  background-position: center center;
+}
+
+.pulseChip {
+  position: relative;
+  z-index: 2;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #00d2ff;
+  box-shadow:
+    0 0 20px #00d2ff,
+    0 0 40px #00d2ff;
+}
+
+.meshSubtitle {
+  position: relative;
+  z-index: 2;
+  margin-top: 14px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #cbd5e1;
+}
+
+/* Preview 3: Battery Meter */
+.batteryContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.batteryRing {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 3px solid #22c55e;
+  box-shadow: 0 0 20px rgba(34, 197, 94, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.batteryNumber {
+  font-size: 1.15rem;
+  font-weight: 900;
+  color: #ffffff;
+}
+
+.batterySubtitle {
+  font-size: 0.72rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+}
+
+/* Card Body */
+.cardBody {
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.cardTag {
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  color: #ff9f1c;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.cardTitle {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 0.65rem 0;
+}
+
+.cardDesc {
+  font-size: 0.88rem;
+  color: #94a3b8;
+  line-height: 1.55;
+  margin: 0 0 1.5rem 0;
+  flex: 1;
+}
+
+/* CTA Pill */
+.cardActionRow {
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.ctaPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 8px 16px;
+  border-radius: 9999px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.deckCard:hover .ctaPill {
+  background: #00d2ff;
+  color: #090d16;
+  border-color: #00d2ff;
+  box-shadow: 0 0 16px rgba(0, 210, 255, 0.4);
+}
+
+/* ==================== 📱 RESPONSIVE ==================== */
+@media (max-width: 1024px) {
+  .deckGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .deckGrid {
+    grid-template-columns: 1fr;
+  }
+  .mainHeading {
+    font-size: 2.35rem;
+  }
+  .scrolltideSection {
+    padding: 4rem 1rem;
+  }
+}

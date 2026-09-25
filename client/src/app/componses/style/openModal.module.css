@@ -1,0 +1,133 @@
+:root {
+  --space-cadet: #25344f;
+  --slate-gray: #617891;
+  --tan: #d5b893;
+  --light-border: #e2e8f0;
+}
+
+/* Modal Content Box (Clean White like screenshot) */
+.customModal :global(.ant-modal-content) {
+  background-color: #ffffff !important;
+  border-radius: 18px !important;
+  padding: 24px 32px !important;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.12) !important;
+  border: 1px solid #edf2f7 !important;
+}
+
+/* Circular Close Button (X in a circle) */
+.customModal :global(.ant-modal-close) {
+  top: 20px !important;
+  right: 24px !important;
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 50% !important;
+  border: 1.5px solid #cbd5e1 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: #64748b !important;
+  background-color: #ffffff !important;
+  transition: all 0.2s ease !important;
+}
+
+.customModal :global(.ant-modal-close:hover) {
+  border-color: var(--space-cadet) !important;
+  color: var(--space-cadet) !important;
+  background-color: #f8fafc !important;
+}
+
+/* Modal Title */
+.modalHeader {
+  border-bottom: 1px solid #f1f5f9;
+  padding-bottom: 14px;
+  margin-bottom: 16px;
+}
+
+.mainTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--space-cadet);
+  margin: 0;
+}
+
+/* Section Subtitle (e.g. "Banner Details") */
+.sectionTitle {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #2563eb; /* Blue section title like the screenshot */
+  margin-bottom: 1rem;
+}
+
+/* Two-column Grid for Form Inputs */
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+/* Form Action Buttons */
+.footerButtons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+/* Save / Submit Button (Deep Navy Pill) */
+.saveBtn {
+  background-color: var(--space-cadet) !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  border-radius: 8px !important;
+  padding: 0.5rem 1.8rem !important;
+  height: auto !important;
+  border: none !important;
+  box-shadow: 0 4px 10px rgba(37, 52, 79, 0.25) !important;
+}
+
+.saveBtn:hover {
+  background-color: #1a2538 !important;
+}
+
+/* Cancel Button */
+.cancelBtn {
+  background-color: transparent !important;
+  color: #64748b !important;
+  border: 1px solid #cbd5e1 !important;
+  border-radius: 8px !important;
+  padding: 0.5rem 1.3rem !important;
+  height: auto !important;
+}
+
+.cancelBtn:hover {
+  border-color: #94a3b8 !important;
+  color: #334155 !important;
+}
+
+/* ============================
+   MOBILE RESPONSIVE
+   ============================ */
+
+@media (max-width: 640px) {
+  .customModal :global(.ant-modal-content) {
+    padding: 20px 16px !important;
+    border-radius: 14px !important;
+  }
+
+  /* Collapse 2 columns to 1 column on mobile */
+  .formGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .footerButtons {
+    flex-direction: column-reverse;
+  }
+
+  .saveBtn,
+  .cancelBtn {
+    width: 100%;
+  }
+}

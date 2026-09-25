@@ -1,0 +1,391 @@
+/* ============================================================ */
+/* PHONIX MOBILE CONTACT PAGE (DARK NEON HIGH-TECH)             */
+/* ============================================================ */
+
+.contactPageWrapper {
+  width: 100%;
+  padding: 2.5rem 1.5rem 7rem 1.5rem;
+  background-color: #090d16;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: #ffffff;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1360px;
+  margin: 0 auto;
+}
+
+/* ================= 1. BREADCRUMB ================= */
+.topNav {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2.5rem;
+}
+
+.breadcrumb {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 6px 14px;
+  border-radius: 9999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.crumbLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: #94a3b8;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.crumbLink:hover {
+  color: #00d2ff;
+}
+
+.crumbSep {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.activeCrumb {
+  color: #ff9f1c;
+  font-weight: 700;
+}
+
+/* ================= 2. HEADER ================= */
+.headerBlock {
+  text-align: center;
+  max-width: 780px;
+  margin: 0 auto 4rem auto;
+}
+
+.eyebrow {
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #00d2ff;
+  text-transform: uppercase;
+  margin-bottom: 0.85rem;
+  display: block;
+}
+
+.mainTitle {
+  font-size: 3.2rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  margin: 0 0 1rem 0;
+  line-height: 1.15;
+}
+
+.subTitle {
+  font-size: 1.05rem;
+  color: #94a3b8;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ================= 3. SPLIT GRID ================= */
+.contactGrid {
+  display: grid;
+  grid-template-columns: 1fr 1.35fr;
+  gap: 3.5rem;
+  align-items: flex-start;
+}
+
+/* ================= LEFT COLUMN ================= */
+.leftCol {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* WhatsApp Card */
+.whatsappCard {
+  background: rgba(34, 197, 94, 0.08);
+  border: 1px solid rgba(34, 197, 94, 0.35);
+  border-radius: 24px;
+  padding: 2rem;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+}
+
+.waHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 0.85rem;
+}
+
+.waIconBox {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #22c55e;
+  color: #090d16;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.waBadge {
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  color: #22c55e;
+  text-transform: uppercase;
+}
+
+.waTitle {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
+}
+
+.waText {
+  font-size: 0.88rem;
+  color: #cbd5e1;
+  line-height: 1.55;
+  margin: 0 0 1.5rem 0;
+}
+
+.waBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #22c55e;
+  color: #090d16;
+  padding: 0.75rem 1.4rem;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.waBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 18px rgba(34, 197, 94, 0.5);
+}
+
+/* Channels List */
+.channelsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.channelItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: rgba(18, 24, 38, 0.75);
+  border: 1px solid rgba(0, 210, 255, 0.16);
+  border-radius: 18px;
+  padding: 1.25rem 1.4rem;
+}
+
+.channelIcon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: rgba(0, 210, 255, 0.1);
+  color: #00d2ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.channelLabel {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #94a3b8;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.channelValue {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.channelValue:hover {
+  color: #00d2ff;
+}
+
+.channelValueText {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.45;
+}
+
+.promisePill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 159, 28, 0.08);
+  border: 1px solid rgba(255, 159, 28, 0.3);
+  padding: 12px 18px;
+  border-radius: 16px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #ff9f1c;
+}
+
+.shieldIcon {
+  flex-shrink: 0;
+  font-size: 1.2rem;
+}
+
+/* ================= RIGHT COLUMN: FORM ================= */
+.formCard {
+  background: rgba(18, 24, 38, 0.85);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(0, 210, 255, 0.25);
+  border-radius: 28px;
+  padding: 2.75rem 2.5rem;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+}
+
+.formHeader {
+  margin-bottom: 2rem;
+}
+
+.formTag {
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: #ff9f1c;
+  display: block;
+  margin-bottom: 0.4rem;
+  text-transform: uppercase;
+}
+
+.formTitle {
+  font-size: 1.85rem;
+  font-weight: 900;
+  color: #ffffff;
+  margin: 0 0 0.5rem 0;
+}
+
+.formSub {
+  font-size: 0.9rem;
+  color: #94a3b8;
+  margin: 0;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.35rem;
+}
+
+.inputRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.inputGroup label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #cbd5e1;
+}
+
+.inputField,
+.selectField,
+.textareaField {
+  width: 100%;
+  padding: 0.85rem 1.15rem;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(9, 13, 22, 0.75);
+  color: #ffffff;
+  font-size: 16px; /* Prevents auto-zoom on mobile */
+  outline: none;
+  transition: all 0.25s ease;
+  box-sizing: border-box;
+}
+
+.inputField:focus,
+.selectField:focus,
+.textareaField:focus {
+  border-color: #00d2ff;
+  background: rgba(9, 13, 22, 0.98);
+  box-shadow: 0 0 16px rgba(0, 210, 255, 0.3);
+}
+
+.inputField::placeholder,
+.textareaField::placeholder {
+  color: rgba(148, 163, 184, 0.5);
+  font-size: 0.9rem;
+}
+
+.textareaField {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.submitBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #22c55e;
+  color: #090d16;
+  padding: 1rem 2rem;
+  border-radius: 9999px;
+  font-size: 0.95rem;
+  font-weight: 800;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(34, 197, 94, 0.4);
+  transition: all 0.25s ease;
+  margin-top: 0.5rem;
+}
+
+.submitBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 26px rgba(34, 197, 94, 0.6);
+  filter: brightness(1.05);
+}
+
+/* ==================== 📱 RESPONSIVENESS ==================== */
+@media (max-width: 1024px) {
+  .contactGrid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 680px) {
+  .mainTitle {
+    font-size: 2.3rem;
+  }
+  .inputRow {
+    grid-template-columns: 1fr;
+  }
+  .formCard {
+    padding: 1.75rem 1.25rem;
+  }
+}
