@@ -6,7 +6,7 @@ async function fetchProductForSeo(identifier) {
   if (!identifier || identifier.trim() === "") return null;
 
   // const baseUrl = "http://localhost:5000/api";
-  const baseUrl = "https://ecom-website-wg9j.onrender.com/api";
+  const baseUrl = "https://phonix-mobile.onrender.com/api";
 
   try {
     const cleanId = decodeURIComponent(identifier).trim();
