@@ -1,15 +1,17 @@
 /* ============================================================ */
-/* PHONIX MOBILE SERVICES CARDS (INTERACTIVE BEFORE/AFTER)     */
+/* PHONIX MOBILE SERVICES CARDS (FULL SIZE IMAGE - ZERO CROPPING)*/
 /* ============================================================ */
 
 .servicesPageWrapper {
   width: 100%;
-  padding: 3rem 1.5rem 6.5rem 1.5rem;
+  /* 🟢 Increased padding-top to 10rem so the navbar NEVER covers your title */
+  padding: 10rem 1.5rem 6.5rem 1.5rem;
   background-color: #090d16;
   font-family:
     -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   color: #ffffff;
   box-sizing: border-box;
+  min-height: 100vh;
 }
 
 .container {
@@ -17,6 +19,77 @@
   margin: 0 auto;
 }
 
+/* ================= TOP BREADCRUMB & BACK BAR ================= */
+.topNavBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.backHomeBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(18, 24, 38, 0.85);
+  border: 1px solid rgba(0, 210, 255, 0.25);
+  color: #00d2ff;
+  padding: 8px 16px;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.backHomeBtn:hover {
+  background: #00d2ff;
+  color: #090d16;
+  box-shadow: 0 0 16px rgba(0, 210, 255, 0.4);
+  transform: translateX(-3px);
+}
+
+.breadcrumbTrail {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 6px 14px;
+  border-radius: 9999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.breadcrumbLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: #94a3b8;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.breadcrumbLink:hover {
+  color: #00d2ff;
+}
+
+.breadcrumbSeparator {
+  color: rgba(255, 255, 255, 0.25);
+  font-size: 0.75rem;
+}
+
+.breadcrumbActive {
+  color: #ff9f1c;
+  font-weight: 700;
+}
+
+/* Header */
 .headerBlock {
   text-align: center;
   max-width: 780px;
@@ -38,6 +111,7 @@
   font-weight: 900;
   letter-spacing: -0.02em;
   margin: 0 0 1rem 0;
+  line-height: 1.15;
 }
 
 .subTitle {
@@ -47,11 +121,11 @@
   margin: 0;
 }
 
-/* 🟢 Cases Grid */
+/* Cases Grid */
 .casesGrid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
+  gap: 2.25rem;
 }
 
 .caseCard {
@@ -103,79 +177,63 @@
 }
 
 /* ============================================================ */
-/* 🟢 DRAGGABLE BEFORE & AFTER SLIDER STAGE INSIDE CARD        */
+/* 🟢 FULL IMAGE STAGE (NO CROPPING / HEADS NOT CUT OFF)       */
 /* ============================================================ */
 .imageBox {
   position: relative;
   width: 100%;
-  height: 270px;
+  /* 🟢 Taller height (440px) gives room for the full portrait photo */
+  height: 440px;
   border-radius: 18px;
   overflow: hidden;
-  background: #090d16;
+  background: #060a12; /* Deep background matching photo */
   margin-bottom: 1.25rem;
   cursor: ew-resize;
   user-select: none;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(0, 210, 255, 0.25);
+  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.8);
 }
 
-.afterLayer {
+/* 🟢 object-fit: contain shows 100% OF THE FULL SIZE PHOTO */
+.fullImg {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-}
-
-.beforeLayer {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  height: 100%;
-  overflow: hidden;
-  z-index: 2;
-  border-right: 2px solid #00d2ff;
-}
-
-.caseImg {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  object-fit: contain; /* 👈 Full image is visible, ZERO crop */
+  object-position: center center;
   display: block;
   pointer-events: none;
-}
-
-.caseImgBefore {
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  pointer-events: none;
-  max-width: none !important;
 }
 
 /* Badges on images */
 .beforeBadge {
   position: absolute;
-  bottom: 12px;
-  left: 12px;
-  background: rgba(239, 68, 68, 0.9);
+  bottom: 14px;
+  left: 14px;
+  background: rgba(239, 68, 68, 0.95);
   color: #ffffff;
-  font-size: 0.68rem;
+  font-size: 0.7rem;
   font-weight: 800;
-  padding: 3px 8px;
+  padding: 4px 10px;
   border-radius: 6px;
-  z-index: 3;
+  z-index: 4;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+  transition: opacity 0.2s ease;
 }
 
 .afterBadge {
   position: absolute;
-  bottom: 12px;
-  right: 12px;
-  background: rgba(34, 197, 94, 0.9);
+  bottom: 14px;
+  right: 14px;
+  background: rgba(34, 197, 94, 0.95);
   color: #090d16;
-  font-size: 0.68rem;
+  font-size: 0.7rem;
   font-weight: 800;
-  padding: 3px 8px;
+  padding: 4px 10px;
   border-radius: 6px;
+  z-index: 4;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
 }
 
 /* Draggable Handle Line */
@@ -184,7 +242,7 @@
   top: 0;
   bottom: 0;
   width: 2px;
-  z-index: 5;
+  z-index: 6;
   transform: translateX(-50%);
   pointer-events: none;
 }
@@ -193,7 +251,7 @@
   width: 2px;
   height: 100%;
   background: #00d2ff;
-  box-shadow: 0 0 12px #00d2ff;
+  box-shadow: 0 0 14px #00d2ff;
 }
 
 .handleKnob {
@@ -201,8 +259,8 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   background: #121826;
   border: 2px solid #00d2ff;
@@ -210,28 +268,26 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.75rem;
+  font-size: 0.85rem;
   font-weight: 900;
-  box-shadow: 0 0 14px rgba(0, 210, 255, 0.6);
+  box-shadow: 0 0 16px rgba(0, 210, 255, 0.7);
 }
 
 .deviceLabel {
   position: absolute;
-  top: 10px;
-  left: 10px;
-  font-size: 0.7rem;
+  top: 12px;
+  left: 12px;
+  font-size: 0.72rem;
   font-weight: 700;
-  background: rgba(9, 13, 22, 0.85);
-  padding: 3px 8px;
+  background: rgba(9, 13, 22, 0.9);
+  padding: 4px 10px;
   border-radius: 6px;
   color: #cbd5e1;
-  z-index: 3;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 5;
+  border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-/* ============================================================ */
-/* CARD CONTENT & CLICKABLE TITLE                              */
-/* ============================================================ */
+/* Card Content & Clickable Title */
 .cardContent {
   display: flex;
   flex-direction: column;
@@ -300,84 +356,6 @@
   color: #ffffff;
   transform: translateX(3px);
 }
-/* ================= TOP BREADCRUMB & BACK BAR ================= */
-.topNavBar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 2.5rem;
-  padding-bottom: 1.25rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-/* Back Button */
-.backHomeBtn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(18, 24, 38, 0.85);
-  border: 1px solid rgba(0, 210, 255, 0.25);
-  color: #00d2ff;
-  padding: 8px 16px;
-  border-radius: 9999px;
-  font-size: 0.85rem;
-  font-weight: 700;
-  text-decoration: none;
-  transition: all 0.25s ease;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-}
-
-.backHomeBtn:hover {
-  background: #00d2ff;
-  color: #090d16;
-  box-shadow: 0 0 16px rgba(0, 210, 255, 0.4);
-  transform: translateX(-3px);
-}
-
-/* Breadcrumb: Home / Services */
-.breadcrumbTrail {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 6px 14px;
-  border-radius: 9999px;
-  font-size: 0.82rem;
-  font-weight: 600;
-}
-
-.breadcrumbLink {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  color: #94a3b8;
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-.breadcrumbLink:hover {
-  color: #00d2ff;
-}
-
-.breadcrumbSeparator {
-  color: rgba(255, 255, 255, 0.25);
-  font-size: 0.75rem;
-}
-
-.breadcrumbActive {
-  color: #ff9f1c;
-  font-weight: 700;
-}
-
-@media (max-width: 600px) {
-  .topNavBar {
-    flex-direction: column-reverse;
-    align-items: flex-start;
-  }
-}
 
 @media (max-width: 900px) {
   .casesGrid {
@@ -386,10 +364,13 @@
 }
 
 @media (max-width: 600px) {
+  .servicesPageWrapper {
+    padding-top: 8rem;
+  }
   .mainTitle {
-    font-size: 2.3rem;
+    font-size: 2.2rem;
   }
   .imageBox {
-    height: 220px;
+    height: 320px;
   }
 }

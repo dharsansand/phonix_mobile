@@ -156,6 +156,7 @@ const NAV_ITEMS = [
   { label: "Stock", href: "/admin/stock", icon: Icons.Reduce },
   { label: "stock Update", href: "/admin/stock-update", icon: Icons.Report },
   { label: "orders", href: "/admin/orders", icon: Icons.Report },
+  { label: "services", href: "/admin/services", icon: Icons.Report },
 ];
 
 export default function ProtectedLayout({ children }) {

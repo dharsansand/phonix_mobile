@@ -13,6 +13,7 @@ import { CartModule } from './cart/cart.module';
 import { WishlistModule } from './wishlist/wishlist.module';
 import { OrderModule } from './order/order.module';
 import { UpTimeRobotModule } from './uptimerobot/upTimeRobot.module';
+import { ServiceModule } from './services/services.module';
 
 @Module({
   imports: [
@@ -29,6 +30,7 @@ import { UpTimeRobotModule } from './uptimerobot/upTimeRobot.module';
     OrderModule,
     WishlistModule,
     UpTimeRobotModule,
+    ServiceModule,
   ],
 })
 export class AppModule {}

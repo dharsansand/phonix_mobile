@@ -129,12 +129,12 @@ export default function Footer() {
             <h4 className={styles.colTitle}>Repair Services</h4>
             <ul className={styles.linkList}>
               <li>
-                <Link href="/services#screen">
+                <Link href="/services/screen">
                   Original Display Replacement
                 </Link>
               </li>
               <li>
-                <Link href="/services#chip">Motherboard Chip-Level Repair</Link>
+                <Link href="/services/chip">Motherboard Chip-Level Repair</Link>
               </li>
               <li>
                 <Link href="/services#battery">
@@ -142,13 +142,13 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/services#water">Water Damage Restoration</Link>
+                <Link href="/services/water">Water Damage Restoration</Link>
               </li>
               <li>
-                <Link href="/services#camera">Camera & Speaker Servicing</Link>
+                <Link href="/services/camera">Camera & Speaker Servicing</Link>
               </li>
               <li>
-                <Link href="/services#charging">Charging Port & IC Fix</Link>
+                <Link href="/services/charging">Charging Port & IC Fix</Link>
               </li>
             </ul>
           </div>

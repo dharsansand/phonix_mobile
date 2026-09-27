@@ -101,6 +101,7 @@ export const api = createApi({
     "Wishlist",
     "CustomerAddress",
     "Order",
+    "Service",
   ],
   endpoints: () => ({}),
 });
