@@ -112,7 +112,13 @@ export default function Footer() {
               >
                 <FaWhatsapp />
               </a>
-              <a href="#" aria-label="Instagram" className={styles.socialBtn}>
+              <a
+                href="https://www.instagram.com/custm_kart"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Instagram"
+                className={styles.socialBtn}
+              >
                 <FaInstagram />
               </a>
             </div>
