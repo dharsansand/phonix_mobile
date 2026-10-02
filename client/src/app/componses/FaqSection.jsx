@@ -130,7 +130,7 @@ export default function FaqSection() {
             <div className={styles.trustRow}>
               <div className={styles.trustItem}>
                 <HiOutlineShieldCheck className={styles.trustIcon} />
-                <span>90-Day Warranty</span>
+                <span>Exclusive Gift</span>
               </div>
               <div className={styles.trustItem}>
                 <HiOutlineClock className={styles.trustIcon} />

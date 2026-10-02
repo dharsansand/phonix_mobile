@@ -163,10 +163,10 @@ export default function ContactClient() {
                 <div>
                   <span className={styles.channelLabel}>Customer Support</span>
                   <a
-                    href="mailto:support@phonixmobile.com"
+                    href="mailto:custmkartphonixmobile@gmail.com"
                     className={styles.channelValue}
                   >
-                    support@phonixmobile.com
+                    custmkartphonixmobile@gmail.com
                   </a>
                 </div>
               </div>

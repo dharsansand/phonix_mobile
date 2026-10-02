@@ -20,9 +20,9 @@ import styles from "./about.module.css";
 const LAB_EQUIPMENT = [
   {
     icon: <HiOutlineLightningBolt size={26} />,
-    title: "0.1mm Laser Separation Station",
+    title: "0.1mm  Separation Station",
     tag: "GLASS RESTORATION",
-    desc: "Automated zero-heat laser beam cleanly cuts shattered glass while preserving 100% of your factory-original OLED display panel.",
+    desc: "Automated zero-heat  beam cleanly cuts shattered glass while preserving 100% of your factory-original OLED display panel.",
   },
   {
     icon: <HiOutlineEye size={26} />,
@@ -57,8 +57,8 @@ const MILESTONES = [
   },
   {
     year: "2021",
-    title: "Laser Glass Separation & Spares Hub",
-    desc: "Introduced zero-heat laser glass cutting to preserve original factory OLED panels and launched certified accessories retail.",
+    title: "Glass Separation & Spares Hub",
+    desc: "Introduced zero-heat glass cutting to preserve original factory OLED panels and launched certified accessories retail.",
   },
   {
     year: "Today",
@@ -134,8 +134,8 @@ export default function AboutClient() {
             </div>
             <div className={styles.statDivider} />
             <div className={styles.statBox}>
-              <span className={styles.statNumber}>90 Days</span>
-              <span className={styles.statLabel}>Written Warranty</span>
+              <span className={styles.statNumber}>FREE</span>
+              <span className={styles.statLabel}>Gift Included</span>
             </div>
             <div className={styles.statDivider} />
             <div className={styles.statBox}>

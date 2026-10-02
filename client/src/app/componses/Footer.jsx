@@ -115,12 +115,6 @@ export default function Footer() {
               <a href="#" aria-label="Instagram" className={styles.socialBtn}>
                 <FaInstagram />
               </a>
-              <a href="#" aria-label="Facebook" className={styles.socialBtn}>
-                <FaFacebookF />
-              </a>
-              <a href="#" aria-label="YouTube" className={styles.socialBtn}>
-                <FaYoutube />
-              </a>
             </div>
           </div>
 
@@ -206,8 +200,8 @@ export default function Footer() {
 
             <div className={styles.contactRow}>
               <HiOutlineMail className={styles.contactIcon} />
-              <a href="mailto:support@phonixmobile.com">
-                support@phonixmobile.com
+              <a href="mailto:custmkartphonixmobile@gmail.com">
+                custmkartphonixmobile@gmail.com
               </a>
             </div>
 

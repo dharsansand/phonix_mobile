@@ -12,7 +12,7 @@ const TECH_CARDS = [
   {
     id: "screen",
     category: "Laser Screen",
-    tag: "0.1MM LASER SEPARATION",
+    tag: "0.1MM SEPARATION",
     title: "Original Glass Separation",
     desc: "Crack-free glass restoration preserving your factory OLED panel, TrueTone calibration, and 120Hz touch response.",
     badge: "30-MIN TURNAROUND",

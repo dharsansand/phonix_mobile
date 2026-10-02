@@ -12,24 +12,6 @@ import {
 import styles from "./services.module.css";
 import { useGetServiceQuery } from "../../store/api/serviceApi";
 
-export const SERVICES_LIST = [
-  {
-    _id: "default-1",
-    slug: "screen-glass-replacement",
-    title: "Laser Screen & Glass Replacement",
-    device: "iPhone 14 Pro Max",
-    turnaround: "30 Mins",
-    warranty: "90 Days Warranty",
-    badge: "MOST POPULAR",
-    beforeImg:
-      "https://res.cloudinary.com/dujuxbpv3/image/upload/v1790506334/service/mt9sx9ibfiniubxjqy1c.png",
-    afterImg:
-      "https://res.cloudinary.com/dujuxbpv3/image/upload/v1790506338/service/epch0bm13zxlpazgbjec.png",
-    desc: "Precision laser separation removes cracked outer glass while preserving 100% of your factory OLED display & True Tone colors.",
-  },
-];
-
-// 🟢 Single Before & After Card with Pixel-Perfect Clip-Path Slider
 function BeforeAfterCard({ service }) {
   const [sliderPos, setSliderPos] = useState(50);
   const containerRef = useRef(null);
@@ -162,7 +144,7 @@ export default function ServicesClient() {
       (item) => item.isActive !== false && item.isDelete !== true,
     );
 
-    return activeItems.length > 0 ? activeItems : SERVICES_LIST;
+    return activeItems.length > 0;
   }, [apiResponse]);
 
   return (
@@ -205,9 +187,9 @@ export default function ServicesClient() {
           </div>
         ) : (
           <div className={styles.casesGrid}>
-            {servicesList.map((srv) => (
+            {/* {servicesList.map((srv) => (
               <BeforeAfterCard key={srv._id || srv.slug} service={srv} />
-            ))}
+            ))} */}
           </div>
         )}
       </div>

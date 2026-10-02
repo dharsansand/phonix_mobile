@@ -16,7 +16,7 @@ export default function PublicLayout({ children }) {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 800);
+    }, 2000);
 
     return () => clearTimeout(timer);
   }, []);
@@ -25,7 +25,6 @@ export default function PublicLayout({ children }) {
     return <Loader />;
   }
 
-  // 🟢 1. LOGIN PAGE (Dark Midnight Theme)
   if (isLoginPage) {
     return (
       <main
