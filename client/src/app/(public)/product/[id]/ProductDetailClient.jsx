@@ -48,6 +48,9 @@ export default function ProductDetailClient({
   const variants =
     product.variants && product.variants.length > 0 ? product.variants : [];
 
+  // 🟢 EXTRACT RECENT PRODUCTS FROM API
+  const recentProducts = response?.recentProducts || [];
+
   // Component States
   const [selectedVariantIdx, setSelectedVariantIdx] = useState(0);
   const [selectedImgIdx, setSelectedImgIdx] = useState(0);
@@ -312,7 +315,6 @@ export default function ProductDetailClient({
 
   return (
     <div className={styles.pageContainer}>
-      {/* Breadcrumb Navigation */}
       <nav className={styles.breadcrumb}>
         <Link href="/">
           <HiHome size={14} /> Home
@@ -323,9 +325,7 @@ export default function ProductDetailClient({
         <span className={styles.activeBreadcrumb}>{product.name}</span>
       </nav>
 
-      {/* Main Details Grid */}
       <div className={styles.productGrid}>
-        {/* Gallery Area */}
         <div className={styles.galleryArea}>
           <div className={styles.mainImageCard}>
             <span
@@ -406,7 +406,6 @@ export default function ProductDetailClient({
           )}
         </div>
 
-        {/* Info & Buy Box */}
         <div className={styles.infoArea}>
           <div className={styles.headerMeta}>
             {activeContent && (
@@ -418,18 +417,14 @@ export default function ProductDetailClient({
               className={styles.shareBtn}
               onClick={async () => {
                 if (isSharing) return;
-
                 const targetSlug =
                   currentVariant.slug || product.slug || identifier;
                 const shareUrl = `${window.location.origin}/product/${targetSlug}`;
                 const shareTitle = currentVariant.meta_title || product.name;
-
                 const isMobile =
                   typeof navigator !== "undefined" &&
                   /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-
                 setIsSharing(true);
-
                 try {
                   if (isMobile && navigator.share) {
                     await navigator.share({
@@ -441,19 +436,12 @@ export default function ProductDetailClient({
                     await navigator.clipboard.writeText(shareUrl);
                   }
                 } catch (err) {
-                  if (err.name !== "AbortError") {
-                    try {
-                      await navigator.clipboard.writeText(shareUrl);
-                    } catch (copyErr) {
-                      console.error("Clipboard copy failed:", copyErr);
-                    }
-                  }
+                  console.error(err);
                 } finally {
                   setIsSharing(false);
                 }
               }}
               aria-label="Share product"
-              title="Share or copy link"
             >
               <HiShare size={18} />
             </button>
@@ -461,7 +449,6 @@ export default function ProductDetailClient({
 
           <h1 className={styles.productTitle}>{product.name}</h1>
 
-          {/* Pricing Row */}
           <div className={styles.priceRow}>
             <span className={styles.currentPrice}>
               ₹{(currentPrice * qty).toLocaleString("en-IN")}
@@ -483,7 +470,6 @@ export default function ProductDetailClient({
             )}
           </div>
 
-          {/* Variants Selector */}
           {variants.length > 1 && (
             <div className={styles.sectionBlock}>
               <label className={styles.blockLabel}>Choose Option:</label>
@@ -495,9 +481,7 @@ export default function ProductDetailClient({
                       key={v.stockId || v.variantId || idx}
                       type="button"
                       onClick={() => handleVariantChange(idx)}
-                      className={`${styles.variantPill} ${
-                        isActive ? styles.activeVariantPill : ""
-                      }`}
+                      className={`${styles.variantPill} ${isActive ? styles.activeVariantPill : ""}`}
                     >
                       {v.colour_code && (
                         <span
@@ -523,7 +507,6 @@ export default function ProductDetailClient({
             </div>
           )}
 
-          {/* Quantity Selector */}
           <div className={styles.sectionBlock}>
             <label className={styles.blockLabel}>Select Quantity:</label>
             <div className={styles.qtyBox}>
@@ -549,7 +532,6 @@ export default function ProductDetailClient({
             </div>
           </div>
 
-          {/* Action Buttons */}
           <div className={styles.desktopActionRow}>
             <button
               type="button"
@@ -564,12 +546,7 @@ export default function ProductDetailClient({
             <button
               type="button"
               onClick={handleWishlistToggle}
-              className={`${styles.wishlistBtn} ${
-                isWishlisted ? styles.wishlisted : ""
-              }`}
-              aria-label={
-                isWishlisted ? "Remove from Wishlist" : "Add to Wishlist"
-              }
+              className={`${styles.wishlistBtn} ${isWishlisted ? styles.wishlisted : ""}`}
             >
               {isWishlisted ? (
                 <HiHeart size={22} color="#ef4444" />
@@ -579,41 +556,31 @@ export default function ProductDetailClient({
             </button>
           </div>
 
-          {/* Trust Highlights */}
           <div className={styles.trustGrid}>
             <div className={styles.trustItem}>
               <HiShieldCheck size={22} className={styles.trustIcon} />
               <div>
                 <h4>100% Tested Genuine Quality</h4>
-                <p>Original specifications certified by master technicians.</p>
+                <p>Original specifications certified.</p>
               </div>
             </div>
             <div className={styles.trustItem}>
               <HiTruck size={22} className={styles.trustIcon} />
               <div>
-                <h4>Express Dispatch in Tirupur</h4>
-                <p>Direct from Phonix Mobile workshop in Periyar Colony.</p>
-              </div>
-            </div>
-            <div className={styles.trustItem}>
-              <HiRefresh size={22} className={styles.trustIcon} />
-              <div>
-                <h4>90-Day Spares Warranty</h4>
-                <p>Hassle-free direct replacement warranty on all spares.</p>
+                <h4>Express Dispatch</h4>
+                <p>Direct from Phonix Mobile workshop.</p>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Specifications & Overview */}
       {activeDescription && (
         <section className={styles.descriptionSection}>
           <div className={styles.descHeader}>
             <span className={styles.descTag} />
             <h2 className={styles.descTitle}>Specifications & Overview</h2>
           </div>
-
           <div className={styles.descCard}>
             <div
               className={styles.htmlContent}
@@ -623,7 +590,46 @@ export default function ProductDetailClient({
         </section>
       )}
 
-      {/* Mobile Sticky Bottom Bar */}
+      {/* 🟢 RECENT PRODUCTS SECTION (NEW) */}
+      {recentProducts.length > 0 && (
+        <section className={styles.recentSection}>
+          <div className={styles.sectionHeader}>
+            <h2 className={styles.sectionTitle}>You May Also Like</h2>
+            <div className={styles.divider} />
+          </div>
+          <div className={styles.recentScrollContainer}>
+            {recentProducts.map((item) => (
+              <Link
+                key={item._id}
+                href={`/product/${item.slug || item._id}`}
+                className={styles.recentCard}
+              >
+                <div className={styles.recentImageWrapper}>
+                  <img
+                    src={item.image || "https://via.placeholder.com/150"}
+                    alt={item.name}
+                    className={styles.recentImage}
+                  />
+                </div>
+                <div className={styles.recentInfo}>
+                  <h3 className={styles.recentName}>{item.name}</h3>
+                  <div className={styles.recentPriceRow}>
+                    <span className={styles.recentPrice}>
+                      ₹{item.price.toLocaleString("en-IN")}
+                    </span>
+                    {item.original_price > item.price && (
+                      <span className={styles.recentOldPrice}>
+                        ₹{item.original_price.toLocaleString("en-IN")}
+                      </span>
+                    )}
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
+
       <div className={styles.mobileBottomBar}>
         <div className={styles.mobilePriceBox}>
           <span className={styles.mobilePriceLabel}>Total</span>
@@ -631,7 +637,6 @@ export default function ProductDetailClient({
             ₹{(currentPrice * qty).toLocaleString("en-IN")}
           </span>
         </div>
-
         <button
           type="button"
           disabled={isOutOfStock}

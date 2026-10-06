@@ -43,18 +43,22 @@
 .headerRow {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
   margin-bottom: 2rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  padding-bottom: 1.25rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+.headerLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
 }
 
 .pageTitle {
-  font-size: 2.2rem;
-  font-weight: 900;
+  font-size: 2rem;
+  font-weight: 800;
   color: #ffffff;
   margin: 0;
-  letter-spacing: -0.02em;
 }
 
 .clearCartBtn {
@@ -86,7 +90,21 @@
   flex-direction: column;
   gap: 1.25rem;
 }
+.continueShoppingLink {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.85rem;
+  color: #00d2ff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
 
+.continueShoppingLink:hover {
+  color: #ffffff;
+  transform: translateX(4px);
+}
 .cartCard {
   display: flex;
   gap: 1.25rem;

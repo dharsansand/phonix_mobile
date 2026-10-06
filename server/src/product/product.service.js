@@ -325,7 +325,6 @@ export class ProductService {
   }
 
   async findMainProduct(query = {}) {
-    console.log('Received query parameters in findMainProduct:', query);
     const page = parseInt(query.page, 10) || 1;
     const limit = parseInt(query.limit, 10) || 10;
     const skip = (page - 1) * limit;
@@ -660,18 +659,221 @@ export class ProductService {
     };
   }
 
+  // async findProductDetails(identifier) {
+  //   if (!identifier) {
+  //     throw new NotFoundException('Product identifier is required');
+  //   }
+
+  //   const cleanIdentifier = String(identifier).trim();
+
+  //   // Check if input is a valid 24-character MongoDB ObjectId
+  //   const isObjectId =
+  //     Types.ObjectId.isValid(cleanIdentifier) && cleanIdentifier.length === 24;
+
+  //   // 🟢 1. Search Query: Matches product _id, product slug, OR variant slug
+  //   const productQuery = {
+  //     isdelete: false,
+  //     $or: [{ slug: cleanIdentifier }, { 'variants.slug': cleanIdentifier }],
+  //   };
+
+  //   if (isObjectId) {
+  //     productQuery.$or.unshift({ _id: new Types.ObjectId(cleanIdentifier) });
+  //   }
+
+  //   // 🟢 2. Fetch Product & Populate Category
+  //   const productDoc = await this.productModel
+  //     .findOne(productQuery)
+  //     .populate('category', 'name')
+  //     .lean();
+
+  //   if (!productDoc) {
+  //     throw new NotFoundException(`Product not found for: ${cleanIdentifier}`);
+  //   }
+
+  //   const productId = productDoc._id;
+
+  //   // 🟢 3. Fetch All Stocks for this Product
+  //   const stockList = await this.stockModel
+  //     .find({
+  //       product: productId,
+  //       isdelete: false,
+  //     })
+  //     .lean();
+
+  //   // 🟢 4. Assemble Variants & Stocks based on Product Type
+  //   let assembledVariants = [];
+
+  //   if (productDoc.producttype === 'basic') {
+  //     const basicStock = stockList[0] || {};
+  //     assembledVariants = [
+  //       {
+  //         stockId: basicStock._id || null,
+  //         variantId: null,
+  //         colour: '',
+  //         colour_code: '',
+  //         capacity: '',
+  //         size: '',
+  //         price: basicStock.price ?? productDoc.price ?? 0,
+  //         original_price:
+  //           basicStock.original_price ?? productDoc.original_price ?? 0,
+  //         quantity: basicStock.quantity ?? productDoc.initial_stock ?? 0,
+  //         unit: productDoc.unit || 'no',
+  //         slug: productDoc.slug,
+  //         images: productDoc.productImage || [],
+  //         content: productDoc.content || '',
+  //         description: productDoc.description || '',
+  //         meta_title: productDoc.meta_title || productDoc.name,
+  //         meta_description: productDoc.meta_description || '',
+  //         meta_keywords: productDoc.meta_keywords || '',
+  //       },
+  //     ];
+  //   } else {
+  //     // Variant Product: Map stock to corresponding variant definition
+  //     const docVariants = productDoc.variants || [];
+
+  //     assembledVariants = stockList.map((stk) => {
+  //       // 🟢 Robust matching: By ID OR by case-insensitive Colour / Size
+  //       const matched = docVariants.find((v) => {
+  //         const idMatch =
+  //           (v._id &&
+  //             stk.variantId &&
+  //             String(v._id) === String(stk.variantId)) ||
+  //           (v.variantId &&
+  //             stk.variantId &&
+  //             String(v.variantId) === String(stk.variantId));
+
+  //         const colourMatch =
+  //           stk.colour &&
+  //           v.colour &&
+  //           String(v.colour).trim().toLowerCase() ===
+  //             String(stk.colour).trim().toLowerCase();
+
+  //         const sizeMatch =
+  //           stk.size &&
+  //           v.size &&
+  //           String(v.size).trim().toLowerCase() ===
+  //             String(stk.size).trim().toLowerCase();
+
+  //         return idMatch || colourMatch || sizeMatch;
+  //       });
+
+  //       const variantImages =
+  //         matched?.images && matched.images.length > 0
+  //           ? matched.images
+  //           : productDoc.productImage || [];
+
+  //       return {
+  //         stockId: stk._id,
+  //         variantId: stk.variantId,
+  //         colour: stk.colour || matched?.colour || '',
+  //         colour_code: matched?.colour_code || '',
+  //         capacity: stk.capacity || matched?.capacity || '',
+  //         size: stk.size || matched?.size || '',
+  //         displaysize: stk.displaysize || matched?.display_size || '',
+  //         price: stk.price,
+  //         original_price: stk.original_price,
+  //         quantity: stk.quantity ?? 0,
+  //         unit: productDoc.unit || 'no',
+  //         slug: matched?.slug || productDoc.slug || '',
+  //         images: variantImages,
+  //         content: matched?.content || productDoc.content || '',
+  //         description: matched?.description || productDoc.description || '',
+  //         meta_title: matched?.meta_title || productDoc.meta_title || '',
+  //         meta_description:
+  //           matched?.meta_description || productDoc.meta_description || '',
+  //         meta_keywords:
+  //           matched?.meta_keywords || productDoc.meta_keywords || '',
+  //       };
+  //     });
+  //   }
+
+  //   // 🟢 5. Combine all unique images (Product + Variant images)
+  //   const allImages = Array.from(
+  //     new Set([
+  //       ...(productDoc.productImage || []),
+  //       ...assembledVariants.flatMap((v) => v.images || []),
+  //     ]),
+  //   ).filter(Boolean);
+
+  //   // 🟢 6. Check if user opened page using a specific Variant Slug
+  //   const matchedRequestedVariant = assembledVariants.find(
+  //     (v) => v.slug && v.slug === cleanIdentifier,
+  //   );
+
+  //   // Default to matched variant if found, otherwise use first variant/stock
+  //   const activeVariant = matchedRequestedVariant || assembledVariants[0] || {};
+  //   const primaryStock = stockList[0] || {};
+
+  //   // 🟢 7. Return Clean Product + Stock Payload
+  //   return {
+  //     product: {
+  //       _id: productDoc._id,
+  //       name: productDoc.name,
+  //       producttype: productDoc.producttype,
+  //       categoryId: productDoc.category?._id || productDoc.category,
+  //       categoryName: productDoc.category?.name || 'VESSEL',
+  //       unit: productDoc.unit || 'no',
+  //       price:
+  //         activeVariant.price ?? primaryStock.price ?? productDoc.price ?? 0,
+  //       original_price:
+  //         activeVariant.original_price ??
+  //         primaryStock.original_price ??
+  //         productDoc.original_price ??
+  //         0,
+  //       initial_stock:
+  //         activeVariant.quantity ??
+  //         primaryStock.quantity ??
+  //         productDoc.initial_stock ??
+  //         0,
+  //       productImage: allImages,
+  //       slug: productDoc.slug,
+
+  //       // Variant-level fallback to product
+  //       content: activeVariant.content || productDoc.content || '',
+  //       description: activeVariant.description || productDoc.description || '',
+  //       meta_title: activeVariant.meta_title || productDoc.meta_title || '',
+  //       meta_description:
+  //         activeVariant.meta_description || productDoc.meta_description || '',
+  //       meta_keywords:
+  //         activeVariant.meta_keywords || productDoc.meta_keywords || '',
+
+  //       createdAt: productDoc.createdAt,
+  //       updatedAt: productDoc.updatedAt,
+  //       variants: assembledVariants,
+  //     },
+  //     stock: {
+  //       _id: activeVariant.stockId || primaryStock._id,
+  //       price:
+  //         activeVariant.price ?? primaryStock.price ?? productDoc.price ?? 0,
+  //       original_price:
+  //         activeVariant.original_price ??
+  //         primaryStock.original_price ??
+  //         productDoc.original_price ??
+  //         0,
+  //       quantity:
+  //         activeVariant.quantity ??
+  //         primaryStock.quantity ??
+  //         productDoc.initial_stock ??
+  //         0,
+  //       colour: activeVariant.colour || primaryStock.colour || '',
+  //       capacity: activeVariant.capacity || primaryStock.capacity || '',
+  //     },
+  //   };
+  // }
   async findProductDetails(identifier) {
+    // This log will now work because the Controller is passing the ID correctly
+    console.log('findProductDetails called with identifier:', identifier);
+
     if (!identifier) {
       throw new NotFoundException('Product identifier is required');
     }
 
     const cleanIdentifier = String(identifier).trim();
 
-    // Check if input is a valid 24-character MongoDB ObjectId
     const isObjectId =
       Types.ObjectId.isValid(cleanIdentifier) && cleanIdentifier.length === 24;
 
-    // 🟢 1. Search Query: Matches product _id, product slug, OR variant slug
+    // 1. Search Query
     const productQuery = {
       isdelete: false,
       $or: [{ slug: cleanIdentifier }, { 'variants.slug': cleanIdentifier }],
@@ -681,7 +883,7 @@ export class ProductService {
       productQuery.$or.unshift({ _id: new Types.ObjectId(cleanIdentifier) });
     }
 
-    // 🟢 2. Fetch Product & Populate Category
+    // 2. Fetch Product
     const productDoc = await this.productModel
       .findOne(productQuery)
       .populate('category', 'name')
@@ -691,19 +893,26 @@ export class ProductService {
       throw new NotFoundException(`Product not found for: ${cleanIdentifier}`);
     }
 
-    const productId = productDoc._id;
+    // 🟢 FIX: Ensure we get a clean ID for the category query
+    // If populated, it's an object, so we take ._id. If not, it's already an ID.
+    const currentCategoryId = productDoc.category?._id
+      ? productDoc.category._id
+      : productDoc.category;
 
-    // 🟢 3. Fetch All Stocks for this Product
+    const productId = productDoc._id;
+    console.log('Product ID:', productId);
+
+    // 3. Fetch Stocks
     const stockList = await this.stockModel
       .find({
         product: productId,
         isdelete: false,
       })
       .lean();
+    console.log('currentCategoryId', currentCategoryId);
 
-    // 🟢 4. Assemble Variants & Stocks based on Product Type
+    // 4. Assemble Variants
     let assembledVariants = [];
-
     if (productDoc.producttype === 'basic') {
       const basicStock = stockList[0] || {};
       assembledVariants = [
@@ -729,11 +938,8 @@ export class ProductService {
         },
       ];
     } else {
-      // Variant Product: Map stock to corresponding variant definition
       const docVariants = productDoc.variants || [];
-
       assembledVariants = stockList.map((stk) => {
-        // 🟢 Robust matching: By ID OR by case-insensitive Colour / Size
         const matched = docVariants.find((v) => {
           const idMatch =
             (v._id &&
@@ -742,19 +948,16 @@ export class ProductService {
             (v.variantId &&
               stk.variantId &&
               String(v.variantId) === String(stk.variantId));
-
           const colourMatch =
             stk.colour &&
             v.colour &&
-            String(v.colour).trim().toLowerCase() ===
-              String(stk.colour).trim().toLowerCase();
-
+            String(stk.colour).trim().toLowerCase() ===
+              String(v.colour).trim().toLowerCase();
           const sizeMatch =
             stk.size &&
             v.size &&
-            String(v.size).trim().toLowerCase() ===
-              String(stk.size).trim().toLowerCase();
-
+            String(stk.size).trim().toLowerCase() ===
+              String(v.size).trim().toLowerCase();
           return idMatch || colourMatch || sizeMatch;
         });
 
@@ -788,7 +991,7 @@ export class ProductService {
       });
     }
 
-    // 🟢 5. Combine all unique images (Product + Variant images)
+    // 5. Images
     const allImages = Array.from(
       new Set([
         ...(productDoc.productImage || []),
@@ -796,22 +999,55 @@ export class ProductService {
       ]),
     ).filter(Boolean);
 
-    // 🟢 6. Check if user opened page using a specific Variant Slug
+    // 6. Active Variant
     const matchedRequestedVariant = assembledVariants.find(
       (v) => v.slug && v.slug === cleanIdentifier,
     );
-
-    // Default to matched variant if found, otherwise use first variant/stock
     const activeVariant = matchedRequestedVariant || assembledVariants[0] || {};
     const primaryStock = stockList[0] || {};
 
-    // 🟢 7. Return Clean Product + Stock Payload
+    // 7. FETCH RECENT PRODUCTS (SAME CATEGORY)
+    const recentProductsRaw = await this.productModel
+      .find({
+        isdelete: false,
+        category: currentCategoryId, // Uses the cleaned ID
+        _id: { $ne: productId },
+      })
+      .sort({ createdAt: -1 })
+      .lean();
+
+    console.log('Recent Products Raw:', recentProductsRaw);
+
+    // 8. Map Recent Products (Fixes the Price: 0 and Empty Image issue)
+    const recentProducts = recentProductsRaw.map((p) => {
+      const displayPrice = p.price > 0 ? p.price : p.variants?.[0]?.price || 0;
+      const displayOriginalPrice =
+        p.original_price > 0
+          ? p.original_price
+          : p.variants?.[0]?.original_price || 0;
+      const displayImage =
+        p.productImage && p.productImage.length > 0
+          ? p.productImage[0]
+          : p.variants?.[0]?.images?.[0] || null;
+
+      return {
+        _id: p._id,
+        name: p.name,
+        slug: p.slug,
+        price: displayPrice,
+        original_price: displayOriginalPrice,
+        image: displayImage,
+      };
+    });
+    console.log('Recent Products:', recentProducts);
+
+    // 9. Final Return
     return {
       product: {
         _id: productDoc._id,
         name: productDoc.name,
         producttype: productDoc.producttype,
-        categoryId: productDoc.category?._id || productDoc.category,
+        categoryId: currentCategoryId,
         categoryName: productDoc.category?.name || 'VESSEL',
         unit: productDoc.unit || 'no',
         price:
@@ -828,8 +1064,6 @@ export class ProductService {
           0,
         productImage: allImages,
         slug: productDoc.slug,
-
-        // Variant-level fallback to product
         content: activeVariant.content || productDoc.content || '',
         description: activeVariant.description || productDoc.description || '',
         meta_title: activeVariant.meta_title || productDoc.meta_title || '',
@@ -837,7 +1071,6 @@ export class ProductService {
           activeVariant.meta_description || productDoc.meta_description || '',
         meta_keywords:
           activeVariant.meta_keywords || productDoc.meta_keywords || '',
-
         createdAt: productDoc.createdAt,
         updatedAt: productDoc.updatedAt,
         variants: assembledVariants,
@@ -859,6 +1092,7 @@ export class ProductService {
         colour: activeVariant.colour || primaryStock.colour || '',
         capacity: activeVariant.capacity || primaryStock.capacity || '',
       },
+      recentProducts: recentProducts,
     };
   }
 

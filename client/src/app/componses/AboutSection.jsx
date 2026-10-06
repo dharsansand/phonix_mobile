@@ -30,7 +30,7 @@ const LAB_TABS = {
     label: "Screen Lab",
     badge: "ORIGINAL COMBO",
     image:
-      "https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?w=700&auto=format&fit=crop&q=80",
+      "https://res.cloudinary.com/dujuxbpv3/image/upload/v1790928327/banners/pp6yv5jh5ki9ln2bd7y8.jpg",
     desc: "Precision Laser Glass Separation & OEM Touch Assemblies",
   },
   chip: {

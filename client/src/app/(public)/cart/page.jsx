@@ -48,7 +48,7 @@ export default function CartPage() {
 
   const customerId = currentUser?.id || currentUser?._id;
 
-  // 🟢 2. RTK Query: Fetch Cart from MongoDB if customer is logged in
+  // 🟢 2. RTK Query
   const { data: dbCartResponse = {}, isLoading: isDbCartLoading } =
     useGetCartItemsQuery(customerId, {
       skip: !customerId,
@@ -66,7 +66,7 @@ export default function CartPage() {
     return guestCart;
   }, [customerId, dbCartResponse, guestCart]);
 
-  // 🟢 4. UPDATE QUANTITY (+1 / -1)
+  // 🟢 4. UPDATE QUANTITY
   const handleQtyChange = async (item, delta) => {
     const newQty = Number(item.quantity) + delta;
     if (newQty < 1) return;
@@ -167,7 +167,7 @@ export default function CartPage() {
           parts to your cart yet.
         </p>
         <Link href="/product" className={styles.continueShoppingBtn}>
-          <span>Explore Accessories</span>
+          <span>Continue Shopping</span>
           <HiArrowRight size={18} />
         </Link>
       </div>
@@ -189,8 +189,14 @@ export default function CartPage() {
         </span>
       </nav>
 
+      {/* 🟢 UPDATED: Header with Continue Shopping Link */}
       <div className={styles.headerRow}>
-        <h1 className={styles.pageTitle}>Shopping Cart</h1>
+        <div className={styles.headerLeft}>
+          <h1 className={styles.pageTitle}>Shopping Cart</h1>
+          <Link href="/product" className={styles.continueShoppingLink}>
+            Continue Shopping <HiChevronRight size={14} />
+          </Link>
+        </div>
         <button onClick={handleClearCart} className={styles.clearCartBtn}>
           Clear All Items
         </button>
@@ -208,7 +214,6 @@ export default function CartPage() {
                 key={`${item.productId}-${item.stockId || idx}`}
                 className={styles.cartCard}
               >
-                {/* Thumbnail */}
                 <Link href={productUrl} className={styles.imgLink}>
                   <img
                     src={
@@ -220,7 +225,6 @@ export default function CartPage() {
                   />
                 </Link>
 
-                {/* Details */}
                 <div className={styles.itemDetails}>
                   <div className={styles.itemHeader}>
                     <h3 className={styles.itemName}>
@@ -231,13 +235,11 @@ export default function CartPage() {
                       onClick={() => handleRemoveItem(item)}
                       className={styles.removeBtn}
                       aria-label="Remove item"
-                      title="Remove item"
                     >
                       <HiOutlineTrash size={18} />
                     </button>
                   </div>
 
-                  {/* Variant info */}
                   {(item.colour || item.capacity) && (
                     <div className={styles.variantBadges}>
                       {item.colour && (
@@ -253,16 +255,13 @@ export default function CartPage() {
                     </div>
                   )}
 
-                  {/* Controls & Price */}
                   <div className={styles.itemFooter}>
-                    {/* Quantity Selector */}
                     <div className={styles.qtyBox}>
                       <button
                         type="button"
                         onClick={() => handleQtyChange(item, -1)}
                         disabled={Number(item.quantity) <= 1}
                         className={styles.qtyBtn}
-                        aria-label="Decrease quantity"
                       >
                         <HiMinus size={13} />
                       </button>
@@ -272,14 +271,15 @@ export default function CartPage() {
                       <button
                         type="button"
                         onClick={() => handleQtyChange(item, 1)}
+                        disabled={
+                          Number(item.quantity) >= (item.stockQuantity || 99)
+                        }
                         className={styles.qtyBtn}
-                        aria-label="Increase quantity"
                       >
                         <HiPlus size={13} />
                       </button>
                     </div>
 
-                    {/* Price */}
                     <div className={styles.priceContainer}>
                       <span className={styles.singlePrice}>
                         ₹{Number(item.price)?.toLocaleString("en-IN")} each
@@ -304,26 +304,16 @@ export default function CartPage() {
           <div className={styles.summaryCard}>
             <h2 className={styles.summaryTitle}>Order Summary</h2>
 
-            {/* Subtotal without Tax */}
             <div className={styles.summaryRow}>
-              <span>
-                Subtotal (
-                {cartItems.reduce(
-                  (sum, it) => sum + Number(it.quantity || 1),
-                  0,
-                )}{" "}
-                items)
-              </span>
+              <span>Subtotal ({cartItems.length} items)</span>
               <span>₹{subtotal.toLocaleString("en-IN")}</span>
             </div>
 
-            {/* Applicable 18% Tax */}
             <div className={styles.summaryRow}>
               <span>Applicable Taxes (GST 18%)</span>
               <span>₹{estimatedGST.toLocaleString("en-IN")}</span>
             </div>
 
-            {/* Delivery Charge */}
             <div className={styles.summaryRow}>
               <span>Estimated Delivery</span>
               <span>
@@ -337,7 +327,6 @@ export default function CartPage() {
 
             <div className={styles.divider} />
 
-            {/* Grand Total */}
             <div className={`${styles.summaryRow} ${styles.grandTotalRow}`}>
               <span>Total Amount</span>
               <span className={styles.grandTotalPrice}>
@@ -366,7 +355,6 @@ export default function CartPage() {
               <HiArrowRight size={18} />
             </button>
 
-            {/* Trust highlights */}
             <div className={styles.trustBox}>
               <div className={styles.trustItem}>
                 <HiShieldCheck size={20} className={styles.trustIcon} />
