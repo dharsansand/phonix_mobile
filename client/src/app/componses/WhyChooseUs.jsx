@@ -27,7 +27,7 @@ const TECH_CARDS = [
     title: "Motherboard Chip Lab",
     desc: "Precision BGA reballing stations and thermal imaging to revive water-damaged, dead, and short-circuited logic boards.",
     badge: "98% SUCCESS RATE",
-    visualType: "focus",
+    visualType: "mesh",
     whatsappText:
       "Hi Phonix Mobile, I have a dead/water-damaged phone motherboard for diagnostics.",
   },

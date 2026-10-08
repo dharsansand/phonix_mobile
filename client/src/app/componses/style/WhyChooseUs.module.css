@@ -238,6 +238,7 @@
 }
 
 /* Preview 2: Circuit Mesh */
+/* CSS Changes */
 .meshContainer {
   position: relative;
   width: 100%;
@@ -246,37 +247,84 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background: #020617; /* Darker background for contrast */
+  overflow: hidden;
 }
 
 .circuitGrid {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(0, 210, 255, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 210, 255, 0.08) 1px, transparent 1px);
-  background-size: 20px 20px;
-  background-position: center center;
+    linear-gradient(rgba(0, 210, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 210, 255, 0.1) 1px, transparent 1px);
+  background-size: 30px 30px;
+  /* Added a scanning line effect */
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    black 20%,
+    black 80%,
+    transparent
+  );
+}
+
+/* The Scanning Line Overlay */
+.circuitGrid::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: rgba(0, 210, 255, 0.5);
+  box-shadow: 0 0 15px #00d2ff;
+  animation: scan 4s linear infinite;
 }
 
 .pulseChip {
   position: relative;
   z-index: 2;
-  width: 12px;
-  height: 12px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   background: #00d2ff;
-  box-shadow:
-    0 0 20px #00d2ff,
-    0 0 40px #00d2ff;
+  box-shadow: 0 0 15px #00d2ff;
+  animation: pulse 2s ease-in-out infinite;
 }
 
 .meshSubtitle {
   position: relative;
   z-index: 2;
-  margin-top: 14px;
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: #cbd5e1;
+  margin-top: 16px;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 2px; /* Spaced out text for tech look */
+  color: #00d2ff;
+  text-shadow: 0 0 8px rgba(0, 210, 255, 0.5);
+}
+
+/* Animations */
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+    box-shadow: 0 0 15px #00d2ff;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.5;
+    box-shadow: 0 0 30px #00d2ff;
+  }
+}
+
+@keyframes scan {
+  0% {
+    top: 0%;
+  }
+  100% {
+    top: 100%;
+  }
 }
 
 /* Preview 3: Battery Meter */
