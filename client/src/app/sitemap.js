@@ -1,10 +1,11 @@
-const BASE_URL = "https://www.phonixmobile.store";
+const BASE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL || "https://www.phonixmobile.store";
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
 
 export default async function sitemap() {
   const currentDate = new Date().toISOString();
 
-  // 🟢 1. Core Static Pages
+  // 1. Static Pages
   const staticRoutes = [
     {
       url: `${BASE_URL}`,
@@ -38,7 +39,7 @@ export default async function sitemap() {
     },
   ];
 
-  // 🟢 2. Dynamic Services (e.g. /services/screen-glass-replacement)
+  // 2. Dynamic Services (/services/[slug])
   let serviceRoutes = [];
   try {
     const res = await fetch(`${API_BASE_URL}/service`, {
@@ -58,10 +59,10 @@ export default async function sitemap() {
         }));
     }
   } catch (error) {
-    console.error("Failed to fetch services for sitemap:", error);
+    console.error("Sitemap service fetch error:", error);
   }
 
-  // 🟢 3. Dynamic Products (e.g. /product/Silver-Keychain-Personalized)
+  // 3. Dynamic Products (/product/[slug])
   let productRoutes = [];
   try {
     const res = await fetch(`${API_BASE_URL}/product?limit=1000`, {
@@ -85,7 +86,7 @@ export default async function sitemap() {
         }));
     }
   } catch (error) {
-    console.error("Failed to fetch products for sitemap:", error);
+    console.error("Sitemap product fetch error:", error);
   }
 
   return [...staticRoutes, ...serviceRoutes, ...productRoutes];
