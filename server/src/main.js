@@ -13,7 +13,7 @@ async function bootstrap() {
     origin: [
       'https://phonix-mobile.vercel.app',
       'http://localhost:3000',
-      'https://www.phonixmobile.store/',
+      'https://www.phonixmobile.store',
     ],
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
     credentials: true,
