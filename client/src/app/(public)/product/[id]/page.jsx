@@ -43,26 +43,25 @@ export async function generateMetadata({ params }) {
 
   if (!product) {
     return {
-      title: "Product Not Found | Abc Classic",
-      description: "The requested traditional metal vessel could not be found.",
+      title: "Product Not Found | Phonix Mobile",
+      description: "The requested product could not be found.",
     };
   }
 
-  const metaTitle =
-    product.meta_title || `${product.name} | Abc Classic Traditional Metalware`;
+  const metaTitle = product.meta_title || `${product.name} | Phonix Mobile`;
   const metaDesc =
     product.meta_description ||
-    `Shop ${product.name} handcrafted by master artisans. Heavy-gauge pure metal vessels by Abc Classic.`;
+    `Shop ${product.name} at Phonix Mobile in Tirupur.`;
   const metaKeywords =
     product.meta_keywords ||
-    `${product.name}, Abc Classic, Traditional Metalware, Copper, Brass`;
+    `${product.name}, Phonix Mobile Accessories, Tirupur Mobile Spares, OEM Replacement Parts, Fast Chargers, iPhone Cases, Tempered Glass`;
 
   const primaryImage =
     product.productImage?.[0] ||
     product.variants?.[0]?.images?.[0] ||
     "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=1200&auto=format&fit=crop&q=80";
 
-  const canonicalUrl = `https://abcclassic.com/product/${encodeURIComponent(identifier)}`;
+  const canonicalUrl = `https://www.phonixmobile.store/product/${encodeURIComponent(identifier)}`;
 
   return {
     title: metaTitle,
@@ -78,7 +77,7 @@ export async function generateMetadata({ params }) {
       title: metaTitle,
       description: metaDesc,
       url: canonicalUrl,
-      siteName: "Abc Classic",
+      siteName: "Phonix Mobile",
       type: "website",
       locale: "en_IN",
       images: [
@@ -119,7 +118,7 @@ export default async function Page({ params }) {
           product.meta_description || product.content || product.name,
         brand: {
           "@type": "Brand",
-          name: "Abc Classic",
+          name: "Phonix Mobile",
         },
         offers: {
           "@type": "Offer",

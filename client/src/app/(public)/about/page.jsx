@@ -17,13 +17,13 @@ export const metadata = {
     "Best Mobile Shop in Tirupur",
   ],
   alternates: {
-    canonical: "https://phonixmobile.com/about",
+    canonical: "https://www.phonixmobile.store/about",
   },
   openGraph: {
     title: "About Phonix Mobile | Quality Is Our Validity Since 2016",
     description:
       "Tirupur's premier multi-brand smartphone diagnostic lab and genuine accessories store. Over 50,000 devices successfully restored.",
-    url: "https://phonixmobile.com/about",
+    url: "https://www.phonixmobile.store/about",
     siteName: "Phonix Mobile",
     type: "website",
     locale: "en_IN",
@@ -53,13 +53,13 @@ export default function AboutPage() {
     "@context": "https://schema.org",
     "@type": "AboutPage",
     name: "About Phonix Mobile",
-    url: "https://phonixmobile.com/about",
+    url: "https://www.phonixmobile.store/about",
     description:
       "Phonix Mobile has been providing certified chip-level mobile restorations and original accessories in Tirupur since 2016.",
     mainEntity: {
       "@type": "LocalBusiness",
       name: "Phonix Mobile - Service & Accessories",
-      url: "https://phonixmobile.com",
+      url: "https://www.phonixmobile.store",
       logo: "https://res.cloudinary.com/dujuxbpv3/image/upload/v1790317185/ChatGPT_Image_Sep_25_2026_11_49_04_AM_fkbitc.png",
       image:
         "https://res.cloudinary.com/dujuxbpv3/image/upload/v1790317185/ChatGPT_Image_Sep_25_2026_11_49_04_AM_fkbitc.png",

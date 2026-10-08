@@ -33,14 +33,14 @@ export async function generateMetadata({ params }) {
         service.meta_keywords ||
         `${service.title}, ${service.device} repair, Tirupur mobile service`,
       alternates: {
-        canonical: `https://phonixmobile.com/services/${slug}`,
+        canonical: `https://www.phonixmobile.store/services/${slug}`,
       },
       openGraph: {
         title: service.meta_title || service.title,
         description:
           service.meta_description ||
           service.desc?.replace(/<[^>]*>?/gm, "").slice(0, 160),
-        url: `https://phonixmobile.com/services/${slug}`,
+        url: `https://www.phonixmobile.store/services/${slug}`,
         images: [
           {
             url:

@@ -15,13 +15,13 @@ export const metadata = {
     "Phonix Mobile Store",
   ],
   alternates: {
-    canonical: "https://phonixmobile.com/product",
+    canonical: "https://www.phonixmobile.store/product",
   },
   openGraph: {
     title: "Mobile Accessories & Spares Catalogue | Phonix Mobile",
     description:
       "Original chargers, rugged cases, audio gear, and replacement spares in Tirupur.",
-    url: "https://phonixmobile.com/product",
+    url: "https://www.phonixmobile.store/product",
     siteName: "Phonix Mobile",
     type: "website",
     locale: "en_IN",
@@ -41,7 +41,7 @@ export default function ProductsPage() {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     name: "Phonix Mobile Accessories & Spares Catalogue",
-    url: "https://phonixmobile.com/product",
+    url: "https://www.phonixmobile.store/product",
     description:
       "Explore genuine smartphone accessories, fast chargers, and replacement components by Phonix Mobile.",
   };

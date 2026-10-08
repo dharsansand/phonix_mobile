@@ -14,13 +14,13 @@ export const metadata = {
     "WhatsApp Mobile Repair Estimate",
   ],
   alternates: {
-    canonical: "https://phonixmobile.com/contact",
+    canonical: "https://www.phonixmobile.store/contact",
   },
   openGraph: {
     title: "Contact Phonix Mobile | Get Instant Repair Estimates",
     description:
       "Visit our service center in Periyar Colony, Tirupur or get an instant diagnostic quote via WhatsApp: +91 7502634924.",
-    url: "https://phonixmobile.com/contact",
+    url: "https://www.phonixmobile.store/contact",
     siteName: "Phonix Mobile",
     type: "website",
     locale: "en_IN",
@@ -41,13 +41,13 @@ export default function ContactPage() {
     "@context": "https://schema.org",
     "@type": "ContactPage",
     name: "Contact Phonix Mobile",
-    url: "https://phonixmobile.com/contact",
+    url: "https://www.phonixmobile.store/contact",
     description:
       "Get instant repair estimates or visit our service center in Tirupur.",
     mainEntity: {
       "@type": "LocalBusiness",
       name: "Phonix Mobile - Service & Accessories",
-      url: "https://phonixmobile.com",
+      url: "https://www.phonixmobile.store",
       telephone: "+917502634924",
       email: "support@phonixmobile.com",
       address: {

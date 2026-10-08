@@ -16,13 +16,13 @@ export const metadata = {
     "Phonix Mobile Repair Cases",
   ],
   alternates: {
-    canonical: "https://phonixmobile.com/services",
+    canonical: "https://www.phonixmobile.store/services",
   },
   openGraph: {
     title: "Smartphone Repair Cases & Services | Phonix Mobile Tirupur",
     description:
       "Interactive Before & After screen restorations, 4K microscope IC fixes, and genuine spares with 90-day warranty.",
-    url: "https://phonixmobile.com/services",
+    url: "https://www.phonixmobile.store/services",
     siteName: "Phonix Mobile",
     type: "website",
     locale: "en_IN",
@@ -56,7 +56,7 @@ export default function ServicesPage() {
       "@type": "LocalBusiness",
       name: "Phonix Mobile - Service & Accessories",
       telephone: "+917502634924",
-      url: "https://phonixmobile.com",
+      url: "https://www.phonixmobile.store",
       address: {
         "@type": "PostalAddress",
         streetAddress: "Periyar Colony",
