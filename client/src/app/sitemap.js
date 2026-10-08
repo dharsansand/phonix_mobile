@@ -4,10 +4,10 @@ const API_BASE_URL = "https://www.phonixmobile.store/api";
 export default async function sitemap() {
   const currentDate = new Date().toISOString();
 
-  // 1. Static Routes (Always Guaranteed)
+  // 1. Static Routes
   const staticRoutes = [
     {
-      url: `${BASE_URL}`,
+      url: `${BASE_URL}/`, // 👈 Trailing slash for root homepage
       lastModified: currentDate,
       changeFrequency: "daily",
       priority: 1.0,
@@ -56,8 +56,7 @@ export default async function sitemap() {
         }));
     }
   } catch (e) {
-    // Fail silently so sitemap never crashes into an HTML error page
-    console.error("Sitemap service fetch error:", e);
+    console.error("Sitemap service error:", e);
   }
 
   let productRoutes = [];
@@ -83,7 +82,7 @@ export default async function sitemap() {
         }));
     }
   } catch (e) {
-    console.error("Sitemap product fetch error:", e);
+    console.error("Sitemap product error:", e);
   }
 
   return [...staticRoutes, ...serviceRoutes, ...productRoutes];
