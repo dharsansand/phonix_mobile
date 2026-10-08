@@ -1,11 +1,10 @@
-const BASE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://www.phonixmobile.store";
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+const BASE_URL = "https://www.phonixmobile.store";
+const API_BASE_URL = "https://www.phonixmobile.store/api";
 
 export default async function sitemap() {
   const currentDate = new Date().toISOString();
 
-  // 1. Static Pages
+  // 1. Static Routes (Always Guaranteed)
   const staticRoutes = [
     {
       url: `${BASE_URL}`,
@@ -39,7 +38,6 @@ export default async function sitemap() {
     },
   ];
 
-  // 2. Dynamic Services (/services/[slug])
   let serviceRoutes = [];
   try {
     const res = await fetch(`${API_BASE_URL}/service`, {
@@ -48,7 +46,6 @@ export default async function sitemap() {
     if (res.ok) {
       const data = await res.json();
       const services = Array.isArray(data) ? data : data?.data || [];
-
       serviceRoutes = services
         .filter((item) => item.isActive !== false && item.isDelete !== true)
         .map((srv) => ({
@@ -58,11 +55,11 @@ export default async function sitemap() {
           priority: 0.85,
         }));
     }
-  } catch (error) {
-    console.error("Sitemap service fetch error:", error);
+  } catch (e) {
+    // Fail silently so sitemap never crashes into an HTML error page
+    console.error("Sitemap service fetch error:", e);
   }
 
-  // 3. Dynamic Products (/product/[slug])
   let productRoutes = [];
   try {
     const res = await fetch(`${API_BASE_URL}/product?limit=1000`, {
@@ -85,8 +82,8 @@ export default async function sitemap() {
           priority: 0.8,
         }));
     }
-  } catch (error) {
-    console.error("Sitemap product fetch error:", error);
+  } catch (e) {
+    console.error("Sitemap product fetch error:", e);
   }
 
   return [...staticRoutes, ...serviceRoutes, ...productRoutes];
