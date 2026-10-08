@@ -377,7 +377,7 @@ export default function ProductCatalogueClient() {
   const [sortBy, setSortBy] = useState("newest");
   const [searchQuery, setSearchQuery] = useState(urlSearch);
   const [currentPage, setCurrentPage] = useState(1);
-  const limit = 10;
+  const limit = 9;
 
   const [currentUser, setCurrentUser] = useState(null);
 
