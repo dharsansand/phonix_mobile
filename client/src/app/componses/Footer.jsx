@@ -229,13 +229,29 @@ export default function Footer() {
             Reserved. &ldquo;Quality is our validity.&rdquo;
           </p>
 
-          <div className={styles.bottomLinks}>
-            <span>Periyar Colony, Tirupur</span>
-            <span>&bull;</span>
-            <Link href="/privacy">Privacy Policy</Link>
-            <span>&bull;</span>
-            <Link href="/terms">Terms of Service</Link>
+          <div className={styles.devCredit}>
+            <span>Developed by</span>
+            <a
+              href="https://dharsanportfolio.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.devLink}
+            >
+              Dharsan S
+            </a>
+            <span className={styles.divider}>|</span>
+            <a href="tel:+919384428585" className={styles.devPhone}>
+              <HiOutlinePhone size={14} /> 93844 28585
+            </a>
           </div>
+        </div>
+
+        <div className={styles.bottomLinks}>
+          <span>Periyar Colony, Tirupur</span>
+          <span>&bull;</span>
+          <Link href="/privacy">Privacy Policy</Link>
+          <span>&bull;</span>
+          <Link href="/terms">Terms of Service</Link>
         </div>
       </div>
     </footer>
