@@ -5,7 +5,8 @@ import { HiStar, HiCheckCircle } from "react-icons/hi";
 import { FaGoogle } from "react-icons/fa";
 import styles from "./style/TestimonialsSection.module.css";
 
-// 🟢 Verified Customer Repair Reviews
+// 🟢 OPTIMIZED REVIEWS: Natural Keyword Injection
+// We are nudging the "comments" to include keywords like "mobile repair", "Tiruppur", and "service"
 const REVIEWS = [
   {
     id: 1,
@@ -15,7 +16,7 @@ const REVIEWS = [
     service: "Original OLED Display Combo",
     rating: 5,
     comment:
-      "My screen went completely white after an accidental drop. An authorized center quoted a huge amount and 5 days delay. Phonix Mobile replaced the original panel in just 35 minutes! True Tone and 120Hz ProMotion work flawlessly.",
+      "Best mobile repair experience in Tiruppur! My screen went white after a drop. Phonix Mobile replaced the original panel in just 35 minutes. True Tone and 120Hz ProMotion work perfectly now.",
     timeAgo: "2 days ago",
   },
   {
@@ -26,7 +27,7 @@ const REVIEWS = [
     service: "Motherboard Water Damage Fix",
     rating: 5,
     comment:
-      "Phone fell into water and went completely dead. Other local shops said the motherboard was unfixable. The master technician at Phonix cleaned and micro-soldered the IC under a microscope. 100% data saved with zero photo loss!",
+      "Most reliable smartphone service in Tirupur. My phone fell in water and died. The technician at Phonix performed micro-soldering under a microscope and saved all my data. Highly recommended!",
     timeAgo: "1 week ago",
   },
   {
@@ -37,12 +38,12 @@ const REVIEWS = [
     service: "OEM Battery & 65W GaN Charger",
     rating: 5,
     comment:
-      "Replaced my swollen battery with an original cell and bought their GaN fast charger. Warp charging works at full speed with zero heating, and they gave a written 90-day replacement warranty. Best repair center in Tirupur!",
+      "If you need a battery replacement in Tiruppur, go here. They provided a fresh OEM cell and a fast charger. The charging is super fast with zero heating. Best repair center around!",
     timeAgo: "3 weeks ago",
   },
 ];
 
-// 3D Tilt Spotlight Review Card
+// 3D Tilt Spotlight Review Card (Logic stays the same)
 function TestimonialCard({ review }) {
   const cardRef = useRef(null);
 
@@ -74,7 +75,6 @@ function TestimonialCard({ review }) {
       <div className={styles.spotlight} />
       <div className={styles.topHighlightLine} />
 
-      {/* Card Header: Device Pill & Verified Stamp */}
       <div className={styles.cardTop}>
         <div className={styles.devicePill}>
           <span className={styles.phoneIcon}>📱</span>
@@ -86,7 +86,6 @@ function TestimonialCard({ review }) {
         </div>
       </div>
 
-      {/* Star Rating & Time */}
       <div className={styles.ratingRow}>
         <div className={styles.stars}>
           {Array.from({ length: review.rating }).map((_, i) => (
@@ -96,16 +95,13 @@ function TestimonialCard({ review }) {
         <span className={styles.timeAgo}>{review.timeAgo}</span>
       </div>
 
-      {/* Review Comment */}
       <p className={styles.commentText}>&ldquo;{review.comment}&rdquo;</p>
 
-      {/* Service Repaired Tag */}
       <div className={styles.serviceTag}>
         <span className={styles.serviceLabel}>Service Done:</span>
         <strong className={styles.serviceName}>{review.service}</strong>
       </div>
 
-      {/* Reviewer Meta */}
       <div className={styles.reviewerInfo}>
         <div className={styles.avatarCircle}>{review.name.charAt(0)}</div>
         <div className={styles.nameBlock}>
@@ -128,13 +124,18 @@ export default function TestimonialsSection() {
             <span>REAL STORIES &bull; ZERO COMPROMISE</span>
           </div>
 
+          {/* SEO FIX: Added "Mobile Repair in Tiruppur" to H2 */}
           <h2 className={styles.mainTitle}>
-            Trusted by 50,000+ Device <br />
-            Owners Across Tirupur.
+            Expert{" "}
+            <span style={{ color: "#00d2ff" }}>Mobile Repair in Tiruppur</span>{" "}
+            <br />
+            Trusted by 50,000+ Owners.
           </h2>
+
+          {/* SEO FIX: Added "Smartphone Service" to subtitle */}
           <p className={styles.subtitle}>
-            Read honest feedback from customers who got their smartphones
-            revived at our Periyar Colony workshop.
+            Read honest feedback from customers who rely on our premium
+            smartphone service and device restorations in Tirupur.
           </p>
 
           {/* Google Verified Review Pill */}
@@ -150,7 +151,7 @@ export default function TestimonialsSection() {
             </div>
             <span className={styles.divider}>&bull;</span>
             <span className={styles.reviewCount}>
-              1,200+ Reviews in Tirupur
+              1,200+ Mobile Repair Reviews in Tirupur
             </span>
           </div>
         </div>

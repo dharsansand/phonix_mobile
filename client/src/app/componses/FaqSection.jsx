@@ -13,37 +13,41 @@ import {
 import { FaWhatsapp } from "react-icons/fa";
 import styles from "./style/FaqSection.module.css";
 
+// 🟢 OPTIMIZED FAQ ITEMS: Designed to match "People Also Ask" on Google
 const FAQ_ITEMS = [
   {
     id: "01",
-    question: "Do you use 100% original displays, and will True Tone work?",
+    // SEO FIX: Added "Mobile Display Replacement in Tiruppur"
+    question: "Do you provide original mobile display replacement in Tiruppur?",
     answer:
-      "Yes. We use certified OEM original display panels. For iPhones and high-end devices, we run optical EEPROM programmer calibration to preserve True Tone, Face ID, and 120Hz ProMotion touch fidelity.",
+      "Yes. As the leading mobile repair center in Tiruppur, we use certified OEM original display panels. For iPhones and high-end devices, we run optical EEPROM programmer calibration to preserve True Tone, Face ID, and 120Hz ProMotion touch fidelity.",
     tags: ["Original OEM Panel", "True Tone Preserved", "30-Min Swap"],
     actionText: "Book Display Fix",
   },
   {
     id: "02",
-    question: "Will my photos, WhatsApp chats, and personal data be deleted?",
+    // SEO FIX: Added "Mobile Repair in Tiruppur"
+    question: "Is my data safe during mobile repair in Tiruppur?",
     answer:
-      "No. For 99% of hardware repairs (screen replacement, battery changes, charging ports, speakers), your data remains completely untouched and private. We maintain a strict zero-data-loss privacy protocol.",
+      "Absolutely. For 99% of hardware repairs like screen replacement, battery changes, or charging port fixes, your personal data remains completely untouched. We follow a strict zero-data-loss privacy protocol at our Phonix Mobile workshop.",
     tags: ["100% Data Safe", "No Factory Reset Needed", "Strict Privacy"],
     actionText: "Check Data Safety",
   },
   {
     id: "03",
-    question:
-      "Can you fix dead or water-damaged phones rejected by other shops?",
+    // SEO FIX: Added "Smartphone Service"
+    question: "Can you fix dead or water-damaged smartphones?",
     answer:
-      "Yes! Our lab is equipped with 4K stereo microscopes, thermal imaging cameras, and BGA reballing stations. Our master technicians can trace burnt power ICs, clean internal corrosion, and revive dead motherboards.",
+      "Yes! Our advanced smartphone service in Tiruppur uses 4K stereo microscopes and BGA reballing stations. Our technicians can trace burnt power ICs and revive dead motherboards that other shops have rejected.",
     tags: ["BGA Reballing", "Water Damage Recovery", "No Fix No Fee"],
     actionText: "Get Board Diagnosis",
   },
   {
     id: "04",
-    question: "What is your repair turnaround time and warranty coverage?",
+    // SEO FIX: Added "Mobile Service in Tiruppur"
+    question: "How fast is your mobile service and what is the warranty?",
     answer:
-      "Most screen and battery swaps take 30 to 45 minutes on the spot in our Tirupur workshop. All replaced spare parts come with a written 90-day replacement warranty with instant replacement support.",
+      "Most mobile screen and battery swaps take only 30 to 45 minutes at our Tirupur workshop. All replaced spare parts come with a written 90-day replacement warranty with instant support.",
     tags: [
       "30-Min Fast Turnaround",
       "90-Day Written Warranty",
@@ -53,17 +57,17 @@ const FAQ_ITEMS = [
   },
   {
     id: "05",
-    question:
-      "My touch works, but only the outer glass is shattered. Can you fix it?",
+    // SEO FIX: Added "Mobile Glass Repair"
+    question: "Do you offer mobile glass-only repair in Tiruppur?",
     answer:
-      "Yes! Through precision laser separation, we remove and replace solely the broken outer glass while preserving your original factory display. This saves you up to 60% compared to buying a whole new combo unit.",
+      "Yes! Through precision laser separation, we replace only the broken outer glass while preserving your original factory display. This is the most cost-effective mobile glass repair in Tiruppur, saving you up to 60% costs.",
     tags: ["Laser Glass Separation", "Save Up To 60%", "Original OLED Intact"],
     actionText: "Inquire Glass Fix",
   },
 ];
 
 export default function FaqSection() {
-  const [openIndex, setOpenIndex] = useState(0); // 1st card open by default
+  const [openIndex, setOpenIndex] = useState(0);
 
   const toggleCard = (index) => {
     setOpenIndex(openIndex === index ? -1 : index);
@@ -80,13 +84,15 @@ export default function FaqSection() {
               <span>TECHNICIAN SUPPORT HUB</span>
             </div>
 
+            {/* SEO FIX: Changed from "Clear Answers" to Keyword-rich H2 */}
             <h2 className={styles.hubTitle}>
-              Clear answers. <br />
-              Zero confusion.
+              Mobile Repair <br />
+              <span style={{ color: "#00d2ff" }}>Tiruppur FAQ.</span>
             </h2>
 
+            {/* SEO FIX: Added "Smartphone Service" and "Periyar Colony" to Subheading */}
             <p className={styles.hubSub}>
-              Everything you need to know about our repair quality, OEM
+              Everything you need to know about our smartphone service, OEM
               component sourcing, and warranty guarantees in Periyar Colony,
               Tirupur.
             </p>
@@ -104,7 +110,7 @@ export default function FaqSection() {
               </div>
 
               <p className={styles.liveText}>
-                Have an unusual phone issue or need a custom price quote? Talk
+                Need a custom price quote for mobile repair in Tiruppur? Talk
                 directly with our master technicians.
               </p>
 
@@ -155,10 +161,8 @@ export default function FaqSection() {
                   className={`${styles.consoleCard} ${isOpen ? styles.cardOpen : ""}`}
                   onClick={() => toggleCard(idx)}
                 >
-                  {/* Top Neon Border Beam when open */}
                   {isOpen && <div className={styles.beamLine} />}
 
-                  {/* Header Row */}
                   <div className={styles.cardHeader}>
                     <span className={styles.numberBadge}>{item.id}</span>
                     <h3 className={styles.questionText}>{item.question}</h3>
@@ -167,13 +171,11 @@ export default function FaqSection() {
                     </div>
                   </div>
 
-                  {/* Answer Expandable Area */}
                   <div
                     className={`${styles.bodyWrapper} ${isOpen ? styles.bodyOpen : ""}`}
                   >
                     <p className={styles.answerText}>{item.answer}</p>
 
-                    {/* Service Feature Tags */}
                     <div className={styles.tagsContainer}>
                       {item.tags.map((tag, i) => (
                         <span key={i} className={styles.tagPill}>
@@ -182,7 +184,6 @@ export default function FaqSection() {
                       ))}
                     </div>
 
-                    {/* Direct Repair CTA */}
                     <div className={styles.cardAction}>
                       <a
                         href={`https://wa.me/917502634924?text=${encodeURIComponent(

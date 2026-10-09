@@ -7,7 +7,7 @@ import WhyChooseUs from "../componses/WhyChooseUs";
 
 // 🟢 1. Next.js App Router SEO Metadata
 export const metadata = {
-  title: "PhonixMobile Service Center & CustmKart | Mobile Service Tirupur",
+  title: "Mobile Repair Tiruppur | PhonixMobile Service Center & Accessories",
   description:
     "PhonixMobile - Trusted since 2016 for smartphone chip-level service, original display replacements, and premium mobile accessories in Tirupur.",
   keywords: [

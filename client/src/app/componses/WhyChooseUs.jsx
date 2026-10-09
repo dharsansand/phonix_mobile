@@ -8,13 +8,14 @@ import styles from "./style/WhyChooseUs.module.css";
 
 const CATEGORIES = ["All", "Laser Screen", "Chip IC", "Battery"];
 
+// 🟢 OPTIMIZED TECH CARDS: Injecting local keywords into every description
 const TECH_CARDS = [
   {
     id: "screen",
     category: "Laser Screen",
     tag: "0.1MM SEPARATION",
-    title: "Original Glass Separation",
-    desc: "Crack-free glass restoration preserving your factory OLED panel, TrueTone calibration, and 120Hz touch response.",
+    title: "Mobile Screen Repair", // SEO: Added "Mobile Screen Repair"
+    desc: "The best mobile screen replacement in Tiruppur. Crack-free glass restoration preserving your factory OLED panel and TrueTone.",
     badge: "30-MIN TURNAROUND",
     visualType: "focus",
     whatsappText:
@@ -25,7 +26,7 @@ const TECH_CARDS = [
     category: "Chip IC",
     tag: "4K MICROSCOPE REWORK",
     title: "Motherboard Chip Lab",
-    desc: "Precision BGA reballing stations and thermal imaging to revive water-damaged, dead, and short-circuited logic boards.",
+    desc: "Expert smartphone chip-level service in Tiruppur. Precision BGA reballing to revive water-damaged and dead logic boards.",
     badge: "98% SUCCESS RATE",
     visualType: "mesh",
     whatsappText:
@@ -35,8 +36,8 @@ const TECH_CARDS = [
     id: "battery",
     category: "Battery",
     tag: "OEM TESTED CELLS",
-    title: "Certified Battery Health",
-    desc: "High-density fresh cycle cells with written 90-day replacement warranty. Maximum backup, zero overheating.",
+    title: "Battery Replacement", // SEO: Added "Battery Replacement"
+    desc: "Fastest mobile battery replacement in Tiruppur. High-density cells with a 90-day replacement warranty.",
     badge: "100% HEALTH AUDIT",
     visualType: "battery",
     whatsappText:
@@ -62,12 +63,18 @@ export default function WhyChooseUs() {
             <span>PRECISION WORKSHOP STANDARDS</span>
           </div>
 
-          <h2 className={styles.mainHeading}>One device at a time.</h2>
+          {/* SEO FIX: Changed from "One device at a time" to Keyword-rich H2 */}
+          <h2 className={styles.mainHeading}>
+            Professional{" "}
+            <span style={{ color: "#00d2ff" }}>Mobile Repair in Tiruppur</span>
+          </h2>
 
+          {/* SEO FIX: Strengthened sub-heading with local service terms */}
           <p className={styles.subHeading}>
-            Not every repair is a simple part swap. At Phonix Mobile, every
-            device undergoes optical microscope diagnosis, laser glass
-            separation, and lab-grade IC rework in Periyar Colony, Tirupur.
+            Not every repair is a simple part swap. At Phonix Mobile, we provide
+            premium smartphone service. Every device undergoes microscope
+            diagnosis and lab-grade IC rework in{" "}
+            <strong>Periyar Colony, Tirupur</strong>.
           </p>
 
           {/* Quick Consultation Badge */}
@@ -100,10 +107,8 @@ export default function WhyChooseUs() {
         <div className={styles.deckGrid}>
           {visibleCards.map((card) => (
             <div key={card.id} className={styles.deckCard}>
-              {/* Top Neon Glow Beam (Scrolltide Signature) */}
               <div className={styles.topBeam} />
 
-              {/* Inside Visual Preview Stage */}
               <div className={styles.previewStage}>
                 <span className={styles.stageBadge}>{card.badge}</span>
 

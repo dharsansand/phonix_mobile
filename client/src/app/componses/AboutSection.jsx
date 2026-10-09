@@ -5,21 +5,21 @@ import Link from "next/link";
 import { HiArrowRight } from "react-icons/hi";
 import styles from "./style/AboutSection.module.css";
 
-// 🟢 3 Core Service Pillars
+// 🟢 3 Core Service Pillars - OPTIMIZED WITH KEYWORDS
 const REPAIR_PILLARS = [
   {
-    title: "100% Genuine OEM Spares",
-    desc: "Original touch glass, displays, batteries, and charging ports backed by warranty.",
+    title: "Genuine OEM Spares",
+    desc: "The best mobile repair in Tiruppur using original touch glass, displays, and batteries.",
     icon: "🛡️",
   },
   {
-    title: "Advanced Micro-Soldering Lab",
-    desc: "High-magnification microscopes for chip-level BGA repairs, IC replacements, and water damage.",
+    title: "Chip-Level Lab",
+    desc: "Expert smartphone service in Tiruppur for BGA repairs, IC replacements, and water damage.",
     icon: "🔬",
   },
   {
-    title: "30-Minute Express Turnaround",
-    desc: "On-the-spot screen, speaker, and battery changes so you are never left disconnected.",
+    title: "Express Turnaround",
+    desc: "Fast mobile screen replacement and battery changes so you are never left disconnected.",
     icon: "⚡",
   },
 ];
@@ -53,7 +53,6 @@ export default function AboutSection() {
   const cardRef = useRef(null);
   const [activeTab, setActiveTab] = useState("screen");
 
-  // React Bits Mouse Spotlight Tracker
   const handleMouseMove = (e) => {
     if (!cardRef.current) return;
     const rect = cardRef.current.getBoundingClientRect();
@@ -70,7 +69,6 @@ export default function AboutSection() {
       <div className={styles.container}>
         {/* LEFT COLUMN: INTERACTIVE DIAGNOSTIC LAB SHOWCASE */}
         <div className={styles.visualCol}>
-          {/* Ambient Cyan Halo Glow */}
           <div className={styles.ambientBeam} />
 
           <div
@@ -78,10 +76,8 @@ export default function AboutSection() {
             onMouseMove={handleMouseMove}
             className={styles.spotlightCard}
           >
-            {/* Dynamic Spotlight Glow */}
             <div className={styles.spotlightEffect} />
 
-            {/* Top Badge Stamp */}
             <div className={styles.cardHeader}>
               <div className={styles.stamp}>
                 <span className={styles.pulseDot} />
@@ -90,18 +86,17 @@ export default function AboutSection() {
               <span className={styles.serialPill}>SINCE 2016</span>
             </div>
 
-            {/* Central Layered Tech Image Stage */}
             <div className={styles.stageFrame}>
               <div className={styles.haloRing} />
               <img
+                /* SEO FIX: Added Keyword to Alt Text for Image Search ranking */
                 src={currentLab.image}
-                alt={currentLab.label}
+                alt={`${currentLab.label} service in Tiruppur | Phonix Mobile Repair`}
                 className={styles.stageImage}
               />
               <div className={styles.imageOverlayBadge}>{currentLab.badge}</div>
             </div>
 
-            {/* Interactive Lab Selector Tabs */}
             <div className={styles.tabSelector}>
               {Object.keys(LAB_TABS).map((key) => (
                 <button
@@ -120,19 +115,23 @@ export default function AboutSection() {
         <div className={styles.contentCol}>
           <div className={styles.eyebrow}>
             <span className={styles.gem}>⚡</span>
-            <span>NO.1 MOBILE SERVICE & ACCESSORIES</span>
+            <span>#1 MOBILE REPAIR SHOP IN TIRUPPUR</span>{" "}
+            {/* SEO FIX: Added Keyword */}
           </div>
 
           <h2 className={styles.mainTitle}>
-            Master-Level Engineering & <br />
-            Flawless Device Restorations.
+            Expert{" "}
+            <span style={{ color: "#00d2ff" }}>Mobile Repair in Tiruppur</span>{" "}
+            & <br />
+            Flawless Device Restorations. {/* SEO FIX: Main Keyword in H2 */}
           </h2>
 
           <p className={styles.leadText}>
-            Since 2016, Phonix Mobile has stood by our promise: &ldquo;Quality
-            is our validity.&rdquo; From delicate iPhone OLED replacements to
-            dead-device motherboard chip reballing, our master technicians
-            ensure your device leaves our workshop operating like brand new.
+            Since 2016, Phonix Mobile has been the most trusted destination for
+            <strong> smartphone chip-level service in Tiruppur</strong>. From
+            delicate iPhone OLED replacements to dead-device motherboard
+            repairs, our master technicians ensure your device leaves our
+            workshop operating like brand new.
           </p>
 
           {/* 3 Pillars Grid */}
