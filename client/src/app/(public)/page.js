@@ -7,30 +7,27 @@ import WhyChooseUs from "../componses/WhyChooseUs";
 
 // 🟢 1. Next.js App Router SEO Metadata
 export const metadata = {
-  title: "Phonix Mobile | No.1 Mobile Service & Accessories in Tirupur",
+  title: "PhonixMobile Service Center & CustmKart | Mobile Service Tirupur",
   description:
-    "Phonix Mobile - Trusted since 2016 for smartphone chip-level service, original display replacements, battery changes, water damage repair, and premium mobile accessories in Periyar Colony, Tirupur.",
+    "PhonixMobile - Trusted since 2016 for smartphone chip-level service, original display replacements, and premium mobile accessories in Tirupur.",
   keywords: [
     "Phonix Mobile",
+    "PhonixMobile Service Center & CustmKart",
     "Mobile Service Tirupur",
     "iPhone Service Tirupur",
     "Display Replacement Tirupur",
     "Mobile Repair Shop Near Me",
     "Periyar Colony Mobile Shop",
-    "Mobile Battery Replacement",
-    "Chip Level Motherboard Repair",
-    "Mobile Screen Glass Change",
-    "Smartphone Accessories Tirupur",
   ],
   alternates: {
-    canonical: "https://phonixmobile.com",
+    canonical: "https://www.phonixmobile.store", // Ensure this is your correct domain
   },
   openGraph: {
-    title: "Phonix Mobile | No.1 Mobile Service & Accessories",
+    title: "PhonixMobile Service Center & CustmKart",
     description:
-      "Quality is our validity. Authorized multi-brand smartphone repair workshop and premium mobile accessories in Tirupur since 2016.",
-    url: "https://phonixmobile.com",
-    siteName: "Phonix Mobile",
+      "Quality is our validity. Authorized multi-brand smartphone repair workshop in Tirupur.",
+    url: "https://www.phonixmobile.store",
+    siteName: "PhonixMobile",
     type: "website",
     locale: "en_IN",
     images: [
@@ -38,17 +35,8 @@ export const metadata = {
         url: "https://res.cloudinary.com/dujuxbpv3/image/upload/v1790317185/ChatGPT_Image_Sep_25_2026_11_49_04_AM_fkbitc.png",
         width: 1200,
         height: 630,
-        alt: "Phonix Mobile Service & Accessories",
+        alt: "PhonixMobile Service Center & CustmKart",
       },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Phonix Mobile | Quality is our Validity",
-    description:
-      "Expert smartphone repair, screen replacements, and premium accessories in Tirupur.",
-    images: [
-      "https://res.cloudinary.com/dujuxbpv3/image/upload/v1790317185/ChatGPT_Image_Sep_25_2026_11_49_04_AM_fkbitc.png",
     ],
   },
 };
@@ -57,8 +45,9 @@ export default function HomePage() {
   const storeSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    name: "Phonix Mobile - Service & Accessories",
-    url: "https://phonixmobile.com",
+    // 1. Use the exact name from Google Maps
+    name: "PhonixMobile Service Center & CustmKart",
+    url: "https://www.phonixmobile.store",
     logo: "https://res.cloudinary.com/dujuxbpv3/image/upload/v1790317185/ChatGPT_Image_Sep_25_2026_11_49_04_AM_fkbitc.png",
     image:
       "https://res.cloudinary.com/dujuxbpv3/image/upload/v1790317185/ChatGPT_Image_Sep_25_2026_11_49_04_AM_fkbitc.png",
@@ -66,8 +55,12 @@ export default function HomePage() {
       "No.1 mobile phone repair center and accessories store in Tirupur. Specializing in display replacements, chip-level service, and genuine accessories.",
     telephone: "+917502634924",
     priceRange: "₹₹",
-    currenciesAccepted: "INR",
-    paymentAccepted: "Cash, UPI, Credit Card, Debit Card, Net Banking",
+
+    // 2. LINK TO GOOGLE MAPS (This is what you asked for)
+    sameAs: [
+      "https://www.google.com/maps/place/PhonixMobile+Service+Center+%26+CustmKart/data=!4m2!3m1!1s0x0:0x79a903323868fdeb",
+    ],
+
     address: {
       "@type": "PostalAddress",
       streetAddress: "Periyar Colony",
@@ -110,7 +103,6 @@ export default function HomePage() {
               itemOffered: {
                 "@type": "Service",
                 name: "Original Screen & Display Replacement",
-                category: "Mobile Repair",
               },
             },
             {
@@ -118,15 +110,6 @@ export default function HomePage() {
               itemOffered: {
                 "@type": "Service",
                 name: "Motherboard Chip-Level Repair",
-                category: "Mobile Repair",
-              },
-            },
-            {
-              "@type": "Offer",
-              itemOffered: {
-                "@type": "Service",
-                name: "Battery Replacement with Warranty",
-                category: "Mobile Repair",
               },
             },
           ],
@@ -138,17 +121,15 @@ export default function HomePage() {
             {
               "@type": "Offer",
               itemOffered: {
-                "@type": "Product",
+                "@type": "Service",
                 name: "Fast Chargers & Type-C Cables",
-                category: "Accessories",
               },
             },
             {
               "@type": "Offer",
               itemOffered: {
-                "@type": "Product",
+                "@type": "Service",
                 name: "Premium Protective Cases & Tempered Glass",
-                category: "Accessories",
               },
             },
           ],

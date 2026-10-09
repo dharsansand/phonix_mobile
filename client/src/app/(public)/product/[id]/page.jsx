@@ -108,6 +108,7 @@ export default async function Page({ params }) {
   const product = await fetchProductForSeo(identifier);
 
   // Schema.org Product Rich Snippet
+  // Schema.org Product Rich Snippet
   const productJsonLd = product
     ? {
         "@context": "https://schema.org",
@@ -120,16 +121,60 @@ export default async function Page({ params }) {
           "@type": "Brand",
           name: "Phonix Mobile",
         },
+        // 🟢 FIX 1: Ensure price is a NUMBER, not a string with "₹"
         offers: {
           "@type": "Offer",
           priceCurrency: "INR",
-          price: product.price || 0,
+          price:
+            typeof product.price === "string"
+              ? parseFloat(product.price.replace(/[^0-9.]/g, ""))
+              : product.price || 0,
           availability:
             (product.initial_stock || 0) > 0
               ? "https://schema.org/InStock"
               : "https://schema.org/OutOfStock",
-          url: `https://abcclassic.com/product/${encodeURIComponent(identifier)}`,
+          // 🟢 FIX 2: Corrected URL from abcclassic.com to your actual domain
+          url: `https://www.phonixmobile.store/product/${encodeURIComponent(identifier)}`,
+
+          // 🟢 FIX 3: Added Shipping Details (Resolves Merchant Listing Warning)
+          shippingDetails: {
+            "@type": "OfferShippingDetails",
+            shippingRate: {
+              "@type": "MonetaryAmount",
+              value: "0", // Change to actual shipping cost if not free
+              currency: "INR",
+            },
+            deliveryTime: {
+              "@type": "ShippingDeliveryTime",
+              handlingTime: {
+                "@type": "QuantitativeValue",
+                minValue: 0,
+                maxValue: 1,
+                unitCode: "DAY",
+              },
+              transitTime: {
+                "@type": "QuantitativeValue",
+                minValue: 1,
+                maxValue: 3,
+                unitCode: "DAY",
+              },
+            },
+          },
+
+          // 🟢 FIX 4: Added Return Policy (Resolves Merchant Listing Warning)
+          hasMerchantReturnPolicy: {
+            "@type": "MerchantReturnPolicy",
+            applicableCountry: "IN",
+            returnPolicyCategory:
+              "https://schema.org/MerchantReturnFiniteReturnWindow",
+            merchantReturnDays: 7, // Change to your actual return days
+            returnMethod: "https://schema.org/ReturnByMail",
+            returnFees: "https://schema.org/FreeReturn",
+          },
         },
+        // 🟢 NOTE ON REVIEWS:
+        // To remove the 'review' and 'aggregateRating' warnings,
+        // you must eventually pull real customer review data from your database.
       }
     : null;
 

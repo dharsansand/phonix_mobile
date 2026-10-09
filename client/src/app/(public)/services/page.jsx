@@ -47,16 +47,21 @@ export const metadata = {
 };
 
 export default function ServicesPage() {
-  // 🟢 2. Schema.org JSON-LD Structured Data for Services & LocalBusiness
   const servicesSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
     serviceType: "Mobile Phone Repair",
     provider: {
       "@type": "LocalBusiness",
-      name: "Phonix Mobile - Service & Accessories",
+      // Recommended: Use the exact name from your Google Maps profile
+      name: "PhonixMobile Service Center & CustmKart",
       telephone: "+917502634924",
       url: "https://www.phonixmobile.store",
+      // ✅ FIX 1: Added image to satisfy the 'image' warning
+      image:
+        "https://res.cloudinary.com/dujuxbpv3/image/upload/v1790317185/ChatGPT_Image_Sep_25_2026_11_49_04_AM_fkbitc.png",
+      // ✅ FIX 2: Added priceRange to satisfy the 'priceRange' warning
+      priceRange: "₹₹",
       address: {
         "@type": "PostalAddress",
         streetAddress: "Periyar Colony",

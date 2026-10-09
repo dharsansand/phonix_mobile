@@ -36,20 +36,29 @@ export const metadata = {
 };
 
 export default function ContactPage() {
-  // 🟢 2. Schema.org JSON-LD Structured Data
   const contactSchema = {
     "@context": "https://schema.org",
     "@type": "ContactPage",
-    name: "Contact Phonix Mobile",
+    name: "Contact PhonixMobile Service Center & CustmKart",
     url: "https://www.phonixmobile.store/contact",
     description:
-      "Get instant repair estimates or visit our service center in Tirupur.",
+      "Get instant repair estimates or visit our service center in Tirupur. Contact Phonix Mobile for expert smartphone repairs and premium accessories.",
     mainEntity: {
       "@type": "LocalBusiness",
-      name: "Phonix Mobile - Service & Accessories",
+
+      name: "PhonixMobile Service Center & CustmKart",
       url: "https://www.phonixmobile.store",
+
+      sameAs: [
+        "https://www.google.com/maps/place/PhonixMobile+Service+Center+%26+CustmKart/data=!4m2!3m1!1s0x0:0x79a903323868fdeb",
+      ],
       telephone: "+917502634924",
-      email: "support@phonixmobile.com",
+      email: "custmkartphonixmobile@gmail.com",
+
+      image:
+        "https://res.cloudinary.com/dujuxbpv3/image/upload/v1790317185/ChatGPT_Image_Sep_25_2026_11_49_04_AM_fkbitc.png",
+
+      priceRange: "₹₹",
       address: {
         "@type": "PostalAddress",
         streetAddress: "Periyar Colony",
