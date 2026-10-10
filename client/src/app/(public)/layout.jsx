@@ -2,36 +2,44 @@
 
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
-import dynamic from "next/dynamic";
+import Header from "@/app/componses/heading";
 import Loader from "@/app/componses/Loader";
-
-// 1. Dynamically load the Header
-const Header = dynamic(() => import("@/app/componses/heading"), {
-  ssr: true,
-});
-
-// 2. Dynamically load the Footer
-const Footer = dynamic(() => import("../componses/Footer"), {
-  ssr: true,
-});
+import Footer from "../componses/Footer";
 
 export default function PublicLayout({ children }) {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const pathname = usePathname();
 
+  // Check if currently on /login page
   const isLoginPage = pathname === "/login";
 
-  // IMPORTANT: Keep the artificial 2s timer REMOVED.
-  // If you need a loader, only use it for data fetching.
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) {
+    return <Loader />;
+  }
 
   if (isLoginPage) {
     return (
       <main
-        style={
-          {
-            /* your login styles */
-          }
-        }
+        style={{
+          minHeight: "100vh",
+          backgroundColor: "#090d16",
+          background:
+            "radial-gradient(circle at 50% 0%, #121826 0%, #090d16 100%)",
+          color: "#ffffff",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          padding: 0,
+          margin: 0,
+        }}
       >
         {children}
       </main>
@@ -42,11 +50,14 @@ export default function PublicLayout({ children }) {
     <div style={{ backgroundColor: "#1b1f2b", minHeight: "100vh" }}>
       <Header />
       <main
-        style={
-          {
-            /* your main styles */
-          }
-        }
+        style={{
+          paddingTop: "110px",
+          minHeight: "100vh",
+          backgroundColor: "#1f2430",
+          background:
+            "radial-gradient(circle at 50% -10%, #162032 0%, #090d16 50%)",
+          color: "#ffffff",
+        }}
       >
         {children}
       </main>
