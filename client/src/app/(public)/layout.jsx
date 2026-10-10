@@ -9,51 +9,57 @@ import Footer from "../componses/Footer";
 export default function PublicLayout({ children }) {
   const [loading, setLoading] = useState(true);
   const pathname = usePathname();
-
-  // Check if currently on /login page
   const isLoginPage = pathname === "/login";
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 2000);
-
+    const timer = setTimeout(() => setLoading(false), 1000); // keep this short
     return () => clearTimeout(timer);
   }, []);
 
-  if (loading) {
-    return <Loader />;
-  }
+  const overlay = loading ? (
+    <div
+      style={{
+        position: "fixed",
+        inset: 0,
+        zIndex: 9999,
+        background: "#090d16",
+      }}
+    >
+      <Loader />
+    </div>
+  ) : null;
 
   if (isLoginPage) {
     return (
-      <main
-        style={{
-          minHeight: "100vh",
-          backgroundColor: "#090d16",
-          background:
-            "radial-gradient(circle at 50% 0%, #121826 0%, #090d16 100%)",
-          color: "#ffffff",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          padding: 0,
-          margin: 0,
-        }}
-      >
-        {children}
-      </main>
+      <>
+        {overlay}
+        <main
+          style={{
+            minHeight: "100vh",
+            background:
+              "radial-gradient(circle at 50% 0%, #121826 0%, #090d16 100%)",
+            color: "#ffffff",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: 0,
+            margin: 0,
+          }}
+        >
+          {children}
+        </main>
+      </>
     );
   }
 
   return (
     <div style={{ backgroundColor: "#1b1f2b", minHeight: "100vh" }}>
+      {overlay}
       <Header />
       <main
         style={{
           paddingTop: "110px",
           minHeight: "100vh",
-          backgroundColor: "#1f2430",
           background:
             "radial-gradient(circle at 50% -10%, #162032 0%, #090d16 50%)",
           color: "#ffffff",
