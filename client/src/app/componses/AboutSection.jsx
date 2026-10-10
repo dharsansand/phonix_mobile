@@ -4,7 +4,6 @@ import React, { useRef, useState } from "react";
 import Link from "next/link";
 import { HiArrowRight } from "react-icons/hi";
 import styles from "./style/AboutSection.module.css";
-import Image from "next/image";
 
 // 🟢 3 Core Service Pillars - OPTIMIZED WITH KEYWORDS
 const REPAIR_PILLARS = [
@@ -89,16 +88,11 @@ export default function AboutSection() {
 
             <div className={styles.stageFrame}>
               <div className={styles.haloRing} />
-              <div className={styles.stageImageWrap}>
-                <Image
-                  src={currentLab.image}
-                  alt={`${currentLab.label} service in Tiruppur | Phonix Mobile Repair`}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  priority={currentIndex === 0}
-                  className={styles.stageImage}
-                />
-              </div>
+              <img
+                src={currentLab.image}
+                alt={`${currentLab.label} service in Tiruppur | Phonix Mobile Repair`}
+                className={styles.stageImage}
+              />
               <div className={styles.imageOverlayBadge}>{currentLab.badge}</div>
             </div>
 

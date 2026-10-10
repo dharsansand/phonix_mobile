@@ -137,7 +137,7 @@ export default function Header() {
             height={46}
             unoptimized
             priority
-            sizes="170px"
+            // sizes="170px"
             className={styles.logoImg}
           />
         </Link>
