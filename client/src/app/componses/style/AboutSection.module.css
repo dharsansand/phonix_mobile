@@ -407,6 +407,15 @@
   display: flex;
   flex-direction: column;
 }
+.stageImageWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3; /* change to match your images */
+}
+
+.stageImage {
+  object-fit: cover; /* or contain, if you don't want cropping */
+}
 
 .statNum {
   font-size: 1.65rem;

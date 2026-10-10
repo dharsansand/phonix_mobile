@@ -132,11 +132,12 @@ export default function Header() {
         <Link href="/" className={styles.brandLogo}>
           <Image
             src={LOGO_URL}
-            alt="Phonix Mobile"
+            alt="Phonix Mobile Service Center, mobile repair in Tiruppur"
             width={170}
             height={46}
             unoptimized
             priority
+            sizes="170px"
             className={styles.logoImg}
           />
         </Link>
