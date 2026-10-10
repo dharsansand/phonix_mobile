@@ -17,7 +17,7 @@ const NAV_ITEMS = [
 ];
 
 const LOGO_URL =
-  "https://res.cloudinary.com/dujuxbpv3/image/upload/v1790317185/ChatGPT_Image_Sep_25_2026_11_49_04_AM_fkbitc.png";
+  "https://res.cloudinary.com/dujuxbpv3/image/upload/f_auto,q_auto,w_200/v1790317185/ChatGPT_Image_Sep_25_2026_11_49_04_AM_fkbitc.png";
 
 export default function Header() {
   const router = useRouter();
